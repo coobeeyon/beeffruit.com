@@ -123,19 +123,19 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
     return templates[Math.floor(Math.random() * templates.length)]();
   }
 
-  // Card type generators for content variety
+  // Card type generators for content variety with weighted distribution
   function generateCardType() {
-    const types = [
-      { type: 'standard', height: 'auto' },
-      { type: 'tall', height: 'min-h-[300px]' },
-      { type: 'quote', height: 'auto' },
-      { type: 'stat', height: 'auto' },
-      { type: 'warning', height: 'auto' },
-      { type: 'recipe', height: 'auto' },
-      { type: 'review', height: 'auto' },
-      { type: 'fact', height: 'auto' }
-    ];
-    return types[Math.floor(Math.random() * types.length)];
+    const rand = Math.random();
+    
+    // Weighted distribution to reduce review frequency
+    if (rand < 0.35) return { type: 'standard', height: 'auto' };        // 35% standard
+    else if (rand < 0.50) return { type: 'tall', height: 'min-h-[300px]' }; // 15% tall
+    else if (rand < 0.62) return { type: 'quote', height: 'auto' };      // 12% quotes
+    else if (rand < 0.74) return { type: 'stat', height: 'auto' };       // 12% stats
+    else if (rand < 0.84) return { type: 'warning', height: 'auto' };    // 10% warnings
+    else if (rand < 0.92) return { type: 'fact', height: 'auto' };       // 8% facts
+    else if (rand < 0.97) return { type: 'recipe', height: 'auto' };     // 5% recipes
+    else return { type: 'review', height: 'auto' };                      // 3% reviews (with stars)
   }
 
   async function load() {
@@ -245,17 +245,22 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
           
         default:
           // Only show emoji sometimes, and vary the layout
-          const showEmoji = Math.random() > 0.4;
+          const showEmoji = Math.random() > 0.7; // Reduce emoji frequency even more
           const showBlurb = Math.random() > 0.2;
+          
+          // Replace sparkles emoji with random varied emojis or skip it
+          const displayEmoji = (item.emoji === '✨') ? 
+            (Math.random() > 0.5 ? '' : getRandomElement(['🤯', '🍖', '🍉', '🔥', '💥', '🌈', '🦾', '🌮', '🍕', '🍔', '🎆', '🎃', '👾', '🤖'])) : 
+            item.emoji;
           
           cardHTML = `
             <div>
               <h3 class="font-bold text-lg mb-2">${content.title}</h3>
               ${showBlurb ? `<p class="text-sm text-gray-300 mb-3">${item.blurb}</p>` : ''}
               ${content.extra}
-              ${showEmoji || item.url ? `
+              ${(showEmoji && displayEmoji) || item.url ? `
                 <div class="flex items-center justify-between mt-3">
-                  ${showEmoji ? `<span class="text-2xl">${item.emoji || getRandomElement(['🤯', '🍖', '🍉', '🔥', '💥', '🌈', '🦾'])}</span>` : '<span></span>'}
+                  ${(showEmoji && displayEmoji) ? `<span class="text-2xl">${displayEmoji}</span>` : '<span></span>'}
                   ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
                 </div>
               ` : ''}
