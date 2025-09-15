@@ -33,7 +33,7 @@ function writeArticle(a) {
 function updateFeed(a) {
   let arr = [];
   try { arr = JSON.parse(fs.readFileSync(feedFile, 'utf8')); } catch {}
-  arr.unshift({ title: a.title, blurb: a.description, emoji: '✨' });
+  arr.unshift({ title: a.title, blurb: a.description, emoji: '✨', url: `/articles/${a.slug}` });
   fs.writeFileSync(feedFile, JSON.stringify(arr.slice(0, 300), null, 2));
 }
 

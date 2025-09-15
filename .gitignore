@@ -14,3 +14,7 @@ pnpm-debug.log*
 .vscode/
 .idea/
 .DS_Store
+
+# local folders not part of this site
+/aoc2024/
+/celestial-corot/

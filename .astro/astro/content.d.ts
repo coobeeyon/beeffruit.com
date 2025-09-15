@@ -141,6 +141,356 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
+"2025-09-15-chaotic-grapefruit-manifesto.md": {
+	id: "2025-09-15-chaotic-grapefruit-manifesto.md";
+  slug: "2025-09-15-chaotic-grapefruit-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-chaotic-grapefruit-theory.md": {
+	id: "2025-09-15-chaotic-grapefruit-theory.md";
+  slug: "2025-09-15-chaotic-grapefruit-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-chaotic-mango-poem.md": {
+	id: "2025-09-15-chaotic-mango-poem.md";
+  slug: "2025-09-15-chaotic-mango-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-chaotic-pear-theory.md": {
+	id: "2025-09-15-chaotic-pear-theory.md";
+  slug: "2025-09-15-chaotic-pear-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-chaotic-pear-tutorial.md": {
+	id: "2025-09-15-chaotic-pear-tutorial.md";
+  slug: "2025-09-15-chaotic-pear-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-chaotic-salad-tutorial.md": {
+	id: "2025-09-15-chaotic-salad-tutorial.md";
+  slug: "2025-09-15-chaotic-salad-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-glitchy-grapefruit-interview.md": {
+	id: "2025-09-15-glitchy-grapefruit-interview.md";
+  slug: "2025-09-15-glitchy-grapefruit-interview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-glitchy-mango-list.md": {
+	id: "2025-09-15-glitchy-mango-list.md";
+  slug: "2025-09-15-glitchy-mango-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-glitchy-pear-manifesto.md": {
+	id: "2025-09-15-glitchy-pear-manifesto.md";
+  slug: "2025-09-15-glitchy-pear-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-glitchy-pudding-interview.md": {
+	id: "2025-09-15-glitchy-pudding-interview.md";
+  slug: "2025-09-15-glitchy-pudding-interview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-haunted-grapefruit-manifesto.md": {
+	id: "2025-09-15-haunted-grapefruit-manifesto.md";
+  slug: "2025-09-15-haunted-grapefruit-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-haunted-pear-manifesto.md": {
+	id: "2025-09-15-haunted-pear-manifesto.md";
+  slug: "2025-09-15-haunted-pear-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-haunted-pudding-interview.md": {
+	id: "2025-09-15-haunted-pudding-interview.md";
+  slug: "2025-09-15-haunted-pudding-interview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-haunted-salad-tutorial.md": {
+	id: "2025-09-15-haunted-salad-tutorial.md";
+  slug: "2025-09-15-haunted-salad-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-haunted-steak-chart.md": {
+	id: "2025-09-15-haunted-steak-chart.md";
+  slug: "2025-09-15-haunted-steak-chart";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-mystic-beef-poem.md": {
+	id: "2025-09-15-mystic-beef-poem.md";
+  slug: "2025-09-15-mystic-beef-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-mystic-mango-tutorial.md": {
+	id: "2025-09-15-mystic-mango-tutorial.md";
+  slug: "2025-09-15-mystic-mango-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-mystic-tomato-tutorial.md": {
+	id: "2025-09-15-mystic-tomato-tutorial.md";
+  slug: "2025-09-15-mystic-tomato-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-avocado-manifesto.md": {
+	id: "2025-09-15-neon-avocado-manifesto.md";
+  slug: "2025-09-15-neon-avocado-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-fruit-list.md": {
+	id: "2025-09-15-neon-fruit-list.md";
+  slug: "2025-09-15-neon-fruit-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-grapefruit-theory.md": {
+	id: "2025-09-15-neon-grapefruit-theory.md";
+  slug: "2025-09-15-neon-grapefruit-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-pear-theory.md": {
+	id: "2025-09-15-neon-pear-theory.md";
+  slug: "2025-09-15-neon-pear-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-pudding-manifesto.md": {
+	id: "2025-09-15-neon-pudding-manifesto.md";
+  slug: "2025-09-15-neon-pudding-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-neon-steak-manifesto.md": {
+	id: "2025-09-15-neon-steak-manifesto.md";
+  slug: "2025-09-15-neon-steak-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-noisy-avocado-list.md": {
+	id: "2025-09-15-noisy-avocado-list.md";
+  slug: "2025-09-15-noisy-avocado-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-noisy-fruit-poem.md": {
+	id: "2025-09-15-noisy-fruit-poem.md";
+  slug: "2025-09-15-noisy-fruit-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-noisy-kiwi-manifesto.md": {
+	id: "2025-09-15-noisy-kiwi-manifesto.md";
+  slug: "2025-09-15-noisy-kiwi-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-noisy-kiwi-poem.md": {
+	id: "2025-09-15-noisy-kiwi-poem.md";
+  slug: "2025-09-15-noisy-kiwi-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-quantum-avocado-interview.md": {
+	id: "2025-09-15-quantum-avocado-interview.md";
+  slug: "2025-09-15-quantum-avocado-interview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-quantum-steak-manifesto.md": {
+	id: "2025-09-15-quantum-steak-manifesto.md";
+  slug: "2025-09-15-quantum-steak-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-shiny-kiwi-poem.md": {
+	id: "2025-09-15-shiny-kiwi-poem.md";
+  slug: "2025-09-15-shiny-kiwi-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-shiny-noodle-interview.md": {
+	id: "2025-09-15-shiny-noodle-interview.md";
+  slug: "2025-09-15-shiny-noodle-interview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-shiny-noodle-list.md": {
+	id: "2025-09-15-shiny-noodle-list.md";
+  slug: "2025-09-15-shiny-noodle-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-shiny-noodle-tutorial.md": {
+	id: "2025-09-15-shiny-noodle-tutorial.md";
+  slug: "2025-09-15-shiny-noodle-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-avocado-manifesto.md": {
+	id: "2025-09-15-sleepy-avocado-manifesto.md";
+  slug: "2025-09-15-sleepy-avocado-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-avocado-tutorial.md": {
+	id: "2025-09-15-sleepy-avocado-tutorial.md";
+  slug: "2025-09-15-sleepy-avocado-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-beef-manifesto.md": {
+	id: "2025-09-15-sleepy-beef-manifesto.md";
+  slug: "2025-09-15-sleepy-beef-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-kiwi-theory.md": {
+	id: "2025-09-15-sleepy-kiwi-theory.md";
+  slug: "2025-09-15-sleepy-kiwi-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-kiwi-tutorial.md": {
+	id: "2025-09-15-sleepy-kiwi-tutorial.md";
+  slug: "2025-09-15-sleepy-kiwi-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-mango-chart.md": {
+	id: "2025-09-15-sleepy-mango-chart.md";
+  slug: "2025-09-15-sleepy-mango-chart";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-steak-list.md": {
+	id: "2025-09-15-sleepy-steak-list.md";
+  slug: "2025-09-15-sleepy-steak-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-tomato-poem.md": {
+	id: "2025-09-15-sleepy-tomato-poem.md";
+  slug: "2025-09-15-sleepy-tomato-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-sleepy-tomato-tutorial.md": {
+	id: "2025-09-15-sleepy-tomato-tutorial.md";
+  slug: "2025-09-15-sleepy-tomato-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-avocado-list.md": {
+	id: "2025-09-15-turbo-avocado-list.md";
+  slug: "2025-09-15-turbo-avocado-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-grapefruit-tutorial.md": {
+	id: "2025-09-15-turbo-grapefruit-tutorial.md";
+  slug: "2025-09-15-turbo-grapefruit-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-mango-manifesto.md": {
+	id: "2025-09-15-turbo-mango-manifesto.md";
+  slug: "2025-09-15-turbo-mango-manifesto";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-mango-poem.md": {
+	id: "2025-09-15-turbo-mango-poem.md";
+  slug: "2025-09-15-turbo-mango-poem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-pear-theory.md": {
+	id: "2025-09-15-turbo-pear-theory.md";
+  slug: "2025-09-15-turbo-pear-theory";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-steak-list.md": {
+	id: "2025-09-15-turbo-steak-list.md";
+  slug: "2025-09-15-turbo-steak-list";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-turbo-steak-tutorial.md": {
+	id: "2025-09-15-turbo-steak-tutorial.md";
+  slug: "2025-09-15-turbo-steak-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "hello-weirdness.md": {
 	id: "hello-weirdness.md";
   slug: "hello-weirdness";

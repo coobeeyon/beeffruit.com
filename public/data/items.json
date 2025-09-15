@@ -1,15 +1,380 @@
 [
-  { "title": "Chart: Fruits Ranked By Drama", "blurb": "Banana quietly exits the group chat.", "emoji": "🍌" },
-  { "title": "Is Lasagna A Fruit?", "blurb": "Botanical chaos ensues.", "emoji": "🍝" },
-  { "title": "Microwave Beef Poetry", "blurb": "Haikus that sizzle.", "emoji": "🥩" },
-  { "title": "12 Grapes That Look Like Celebrities", "blurb": "Number 7 is unsettling.", "emoji": "🍇" },
-  { "title": "Interview With A Mango", "blurb": "We asked the hard questions.", "emoji": "🥭" },
-  { "title": "Speedrun: Making A Salad In 0.3 Seconds", "blurb": "Physics was harmed.", "emoji": "🥗" },
-  { "title": "Beef Horoscope", "blurb": "Taurus? More like T-bone.", "emoji": "♉️" },
-  { "title": "Smoothie That Knows Your Password", "blurb": "It won't tell.", "emoji": "🥤" },
-  { "title": "Ranking Fruits By Soundtrack", "blurb": "Grapefruit goes synthwave.", "emoji": "🍊" },
-  { "title": "Which Steak Cut Are You?", "blurb": "Quiz inside.", "emoji": "🥩" },
-  { "title": "Infographic: Tomato's Double Life", "blurb": "Fruit by day, sauce by night.", "emoji": "🍅" },
-  { "title": "Watermelon Architecture", "blurb": "Brutalism meets picnic.", "emoji": "🍉" }
+  {
+    "title": "Sleepy Mango Chart",
+    "blurb": "Salad Energy In Chart Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-mango-chart"
+  },
+  {
+    "title": "Quantum Steak Manifesto",
+    "blurb": "Grapefruit Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-quantum-steak-manifesto"
+  },
+  {
+    "title": "Haunted Pear Manifesto",
+    "blurb": "Tomato Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-haunted-pear-manifesto"
+  },
+  {
+    "title": "Neon Avocado Manifesto",
+    "blurb": "Pear Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-avocado-manifesto"
+  },
+  {
+    "title": "Glitchy Pudding Interview",
+    "blurb": "Noodle Energy In Interview Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-glitchy-pudding-interview"
+  },
+  {
+    "title": "Quantum Avocado Interview",
+    "blurb": "Noodle Energy In Interview Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-quantum-avocado-interview"
+  },
+  {
+    "title": "Chaotic Salad Tutorial",
+    "blurb": "Pear Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-salad-tutorial"
+  },
+  {
+    "title": "Mystic Tomato Tutorial",
+    "blurb": "Grapefruit Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-mystic-tomato-tutorial"
+  },
+  {
+    "title": "Chaotic Pear Theory",
+    "blurb": "Beef Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-pear-theory"
+  },
+  {
+    "title": "Chaotic Pear Tutorial",
+    "blurb": "Avocado Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-pear-tutorial"
+  },
+  {
+    "title": "Noisy Avocado List",
+    "blurb": "Fruit Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-noisy-avocado-list"
+  },
+  {
+    "title": "Shiny Noodle Tutorial",
+    "blurb": "Beef Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-shiny-noodle-tutorial"
+  },
+  {
+    "title": "Shiny Noodle Interview",
+    "blurb": "Tomato Energy In Interview Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-shiny-noodle-interview"
+  },
+  {
+    "title": "Neon Pear Theory",
+    "blurb": "Steak Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-pear-theory"
+  },
+  {
+    "title": "Chaotic Mango Poem",
+    "blurb": "Tomato Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-mango-poem"
+  },
+  {
+    "title": "Sleepy Beef Manifesto",
+    "blurb": "Beef Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-beef-manifesto"
+  },
+  {
+    "title": "Glitchy Mango List",
+    "blurb": "Mango Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-glitchy-mango-list"
+  },
+  {
+    "title": "Sleepy Kiwi Theory",
+    "blurb": "Pudding Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-kiwi-theory"
+  },
+  {
+    "title": "Turbo Pear Theory",
+    "blurb": "Avocado Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-pear-theory"
+  },
+  {
+    "title": "Haunted Salad Tutorial",
+    "blurb": "Fruit Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-haunted-salad-tutorial"
+  },
+  {
+    "title": "Mystic Mango Tutorial",
+    "blurb": "Salad Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-mystic-mango-tutorial"
+  },
+  {
+    "title": "Turbo Steak Tutorial",
+    "blurb": "Kiwi Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-steak-tutorial"
+  },
+  {
+    "title": "Turbo Avocado List",
+    "blurb": "Kiwi Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-avocado-list"
+  },
+  {
+    "title": "Turbo Mango Manifesto",
+    "blurb": "Avocado Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-mango-manifesto"
+  },
+  {
+    "title": "Turbo Grapefruit Tutorial",
+    "blurb": "Kiwi Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-grapefruit-tutorial"
+  },
+  {
+    "title": "Chaotic Grapefruit Manifesto",
+    "blurb": "Beef Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-grapefruit-manifesto"
+  },
+  {
+    "title": "Noisy Kiwi Manifesto",
+    "blurb": "Beef Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-noisy-kiwi-manifesto"
+  },
+  {
+    "title": "Neon Grapefruit Theory",
+    "blurb": "Noodle Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-grapefruit-theory"
+  },
+  {
+    "title": "Shiny Kiwi Poem",
+    "blurb": "Beef Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-shiny-kiwi-poem"
+  },
+  {
+    "title": "Sleepy Kiwi Tutorial",
+    "blurb": "Pudding Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-kiwi-tutorial"
+  },
+  {
+    "title": "Neon Fruit List",
+    "blurb": "Pudding Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-fruit-list"
+  },
+  {
+    "title": "Mystic Beef Poem",
+    "blurb": "Fruit Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-mystic-beef-poem"
+  },
+  {
+    "title": "Sleepy Avocado Manifesto",
+    "blurb": "Steak Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-avocado-manifesto"
+  },
+  {
+    "title": "Shiny Noodle List",
+    "blurb": "Grapefruit Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-shiny-noodle-list"
+  },
+  {
+    "title": "Haunted Pudding Interview",
+    "blurb": "Beef Energy In Interview Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-haunted-pudding-interview"
+  },
+  {
+    "title": "Noisy Kiwi Poem",
+    "blurb": "Pear Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-noisy-kiwi-poem"
+  },
+  {
+    "title": "Noisy Fruit Poem",
+    "blurb": "Steak Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-noisy-fruit-poem"
+  },
+  {
+    "title": "Sleepy Tomato Poem",
+    "blurb": "Steak Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-tomato-poem"
+  },
+  {
+    "title": "Haunted Grapefruit Manifesto",
+    "blurb": "Salad Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-haunted-grapefruit-manifesto"
+  },
+  {
+    "title": "Sleepy Steak List",
+    "blurb": "Noodle Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-steak-list"
+  },
+  {
+    "title": "Glitchy Pear Manifesto",
+    "blurb": "Noodle Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-glitchy-pear-manifesto"
+  },
+  {
+    "title": "Sleepy Avocado Tutorial",
+    "blurb": "Pudding Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-avocado-tutorial"
+  },
+  {
+    "title": "Turbo Steak List",
+    "blurb": "Fruit Energy In List Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-steak-list"
+  },
+  {
+    "title": "Neon Steak Manifesto",
+    "blurb": "Grapefruit Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-steak-manifesto"
+  },
+  {
+    "title": "Chaotic Grapefruit Theory",
+    "blurb": "Mango Energy In Theory Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-chaotic-grapefruit-theory"
+  },
+  {
+    "title": "Sleepy Tomato Tutorial",
+    "blurb": "Fruit Energy In Tutorial Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-sleepy-tomato-tutorial"
+  },
+  {
+    "title": "Turbo Mango Poem",
+    "blurb": "Noodle Energy In Poem Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-turbo-mango-poem"
+  },
+  {
+    "title": "Haunted Steak Chart",
+    "blurb": "Beef Energy In Chart Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-haunted-steak-chart"
+  },
+  {
+    "title": "Neon Pudding Manifesto",
+    "blurb": "Mango Energy In Manifesto Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-neon-pudding-manifesto"
+  },
+  {
+    "title": "Glitchy Grapefruit Interview",
+    "blurb": "Mango Energy In Interview Form",
+    "emoji": "✨",
+    "url": "/articles/2025-09-15-glitchy-grapefruit-interview"
+  },
+  {
+    "title": "Hello, Weirdness",
+    "blurb": "BeefFruit kicks off with unreasonable vibes.",
+    "emoji": "✨",
+    "url": "/articles/hello-weirdness"
+  },
+  {
+    "title": "The Ultimate Beef-or-Fruit Guide",
+    "blurb": "A faux-scientific field manual.",
+    "emoji": "🥩",
+    "url": "/articles/ultimate-beef-or-fruit-guide"
+  },
+  {
+    "title": "Ten Chaotic Listicles",
+    "blurb": "Shareable chaos engineered for bewilderment.",
+    "emoji": "🍇",
+    "url": "/articles/ten-chaotic-listicles"
+  },
+  {
+    "title": "Chart: Fruits Ranked By Drama",
+    "blurb": "Banana quietly exits the group chat.",
+    "emoji": "🍌"
+  },
+  {
+    "title": "Is Lasagna A Fruit?",
+    "blurb": "Botanical chaos ensues.",
+    "emoji": "🍝"
+  },
+  {
+    "title": "Microwave Beef Poetry",
+    "blurb": "Haikus that sizzle.",
+    "emoji": "🥩"
+  },
+  {
+    "title": "12 Grapes That Look Like Celebrities",
+    "blurb": "Number 7 is unsettling.",
+    "emoji": "🍇"
+  },
+  {
+    "title": "Interview With A Mango",
+    "blurb": "We asked the hard questions.",
+    "emoji": "🥭"
+  },
+  {
+    "title": "Speedrun: Making A Salad In 0.3 Seconds",
+    "blurb": "Physics was harmed.",
+    "emoji": "🥗"
+  },
+  {
+    "title": "Beef Horoscope",
+    "blurb": "Taurus? More like T-bone.",
+    "emoji": "♉️"
+  },
+  {
+    "title": "Smoothie That Knows Your Password",
+    "blurb": "It won't tell.",
+    "emoji": "🥤"
+  },
+  {
+    "title": "Ranking Fruits By Soundtrack",
+    "blurb": "Grapefruit goes synthwave.",
+    "emoji": "🍊"
+  },
+  {
+    "title": "Which Steak Cut Are You?",
+    "blurb": "Quiz inside.",
+    "emoji": "🥩"
+  },
+  {
+    "title": "Infographic: Tomato's Double Life",
+    "blurb": "Fruit by day, sauce by night.",
+    "emoji": "🍅"
+  },
+  {
+    "title": "Watermelon Architecture",
+    "blurb": "Brutalism meets picnic.",
+    "emoji": "🍉"
+  }
 ]
-
