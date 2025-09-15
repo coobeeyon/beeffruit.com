@@ -50,7 +50,7 @@ const breakingNews = [
       </p>
       
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <button class="neon-glow rounded-xl bg-brand-pink text-white font-black px-8 py-4 text-lg shake-hover">
+        <button id="chaos-injector" class="neon-glow rounded-xl bg-brand-pink text-white font-black px-8 py-4 text-lg shake-hover">
           🔥 INJECT CHAOS INTO MY VEINS
         </button>
         <div class="text-3xl font-bold">
@@ -175,5 +175,153 @@ const breakingNews = [
       setTimeout(() => el.classList.remove('shake-hover'), 500);
     }
   });
+
+  // CHAOS INJECTION SYSTEM
+  let chaosLevel = 0;
+  const chaosBtn = document.getElementById('chaos-injector');
+  const chaosStates = [
+    { text: '🔥 INJECT CHAOS INTO MY VEINS', class: 'bg-brand-pink' },
+    { text: '💉 INJECTING... PLEASE WAIT', class: 'bg-brand-yellow animate-pulse' },
+    { text: '🌈 CHAOS LEVEL 1: ACTIVATED', class: 'bg-gradient-to-r from-brand-pink to-brand-yellow' },
+    { text: '⚡ CHAOS LEVEL 2: ASCENDING', class: 'bg-gradient-to-r from-brand-green to-brand-blue animate-gradient' },
+    { text: '🔮 CHAOS LEVEL 3: TRANSCENDING', class: 'bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse' },
+    { text: '👁️ CHAOS LEVEL 4: OMNISCIENT', class: 'animate-gradient' },
+    { text: '🌌 MAXIMUM CHAOS ACHIEVED', class: 'bg-black border-2 border-white animate-pulse' },
+    { text: '💀 YOU ARE NOW BEEF', class: 'bg-red-900 animate-pulse' },
+    { text: '🍉 YOU ARE NOW FRUIT', class: 'bg-green-600 animate-pulse' },
+    { text: '∞ YOU ARE EVERYTHING', class: 'rainbow-text text-4xl' }
+  ];
+
+  const chaosEffects = [
+    () => {}, // Level 0: Nothing
+    () => { // Level 1: Mild shaking
+      document.body.classList.add('animate-pulse');
+      setTimeout(() => document.body.classList.remove('animate-pulse'), 2000);
+    },
+    () => { // Level 2: Color inversion
+      document.documentElement.style.filter = 'hue-rotate(90deg)';
+      setTimeout(() => document.documentElement.style.filter = '', 3000);
+    },
+    () => { // Level 3: Everything floats
+      document.querySelectorAll('section, article, div').forEach((el, i) => {
+        setTimeout(() => {
+          el.style.transition = 'transform 2s';
+          el.style.transform = `translateY(-${Math.random() * 20}px) rotate(${Math.random() * 6 - 3}deg)`;
+          setTimeout(() => el.style.transform = '', 2000);
+        }, i * 50);
+      });
+    },
+    () => { // Level 4: Glitch text everywhere
+      document.querySelectorAll('h1, h2, h3, p').forEach(el => {
+        el.classList.add('glitch-text');
+        setTimeout(() => el.classList.remove('glitch-text'), 3000);
+      });
+    },
+    () => { // Level 5: Rainbow everything
+      document.querySelectorAll('*').forEach((el, i) => {
+        if (i % 3 === 0) el.classList.add('rainbow-text');
+        setTimeout(() => el.classList.remove('rainbow-text'), 4000);
+      });
+    },
+    () => { // Level 6: Spin the page
+      document.body.style.transition = 'transform 3s';
+      document.body.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        document.body.style.transform = '';
+      }, 3000);
+    },
+    () => { // Level 7: Beef mode
+      document.body.style.backgroundColor = '#8B0000';
+      document.body.innerHTML += '<div id="beef-rain" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;"></div>';
+      const rain = document.getElementById('beef-rain');
+      for (let i = 0; i < 50; i++) {
+        const beef = document.createElement('div');
+        beef.textContent = '🥩';
+        beef.style.position = 'absolute';
+        beef.style.left = Math.random() * 100 + '%';
+        beef.style.fontSize = Math.random() * 30 + 20 + 'px';
+        beef.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+        rain?.appendChild(beef);
+      }
+      setTimeout(() => {
+        rain?.remove();
+        document.body.style.backgroundColor = '';
+      }, 5000);
+    },
+    () => { // Level 8: Fruit mode
+      const fruits = ['🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🫐', '🍒', '🍑', '🥭', '🍍', '🥥', '🥝'];
+      document.querySelectorAll('*').forEach(el => {
+        if (el.textContent && Math.random() > 0.7) {
+          el.dataset.original = el.textContent;
+          el.textContent = fruits[Math.floor(Math.random() * fruits.length)];
+          setTimeout(() => {
+            if (el.dataset.original) el.textContent = el.dataset.original;
+          }, 3000);
+        }
+      });
+    },
+    () => { // Level 9: EVERYTHING
+      document.body.style.animation = 'spin 1s, gradient 2s, pulse 0.5s';
+      document.documentElement.style.filter = 'contrast(200%) brightness(150%) hue-rotate(180deg)';
+      const alert = document.createElement('div');
+      alert.innerHTML = '<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:5rem;z-index:99999;text-shadow:0 0 50px white;animation:pulse 0.5s infinite;">YOU WIN</div>';
+      document.body.appendChild(alert);
+      setTimeout(() => {
+        alert.remove();
+        document.body.style.animation = '';
+        document.documentElement.style.filter = '';
+        chaosLevel = 0;
+        updateChaosButton();
+      }, 5000);
+    }
+  ];
+
+  function updateChaosButton() {
+    if (chaosBtn) {
+      const state = chaosStates[Math.min(chaosLevel, chaosStates.length - 1)];
+      chaosBtn.textContent = state.text;
+      chaosBtn.className = `neon-glow rounded-xl text-white font-black px-8 py-4 text-lg shake-hover ${state.class}`;
+    }
+  }
+
+  chaosBtn?.addEventListener('click', () => {
+    chaosLevel++;
+    updateChaosButton();
+    
+    if (chaosLevel < chaosEffects.length) {
+      chaosEffects[chaosLevel]();
+    }
+    
+    // Add screen shake on every click
+    document.body.style.animation = 'shake 0.5s';
+    setTimeout(() => document.body.style.animation = '', 500);
+    
+    // Random chaos messages
+    const messages = [
+      'CHAOS COURSING THROUGH YOUR VEINS',
+      'REALITY IS OPTIONAL',
+      'BEEF AND FRUIT ARE ONE',
+      'THE SIMULATION APPROVES',
+      'ERROR: TOO MUCH CHAOS',
+      'CONGRATULATIONS',
+      'WHY DID YOU DO THIS',
+      'THERE IS NO GOING BACK'
+    ];
+    
+    if (Math.random() > 0.5) {
+      const msg = document.createElement('div');
+      msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+      msg.style.cssText = `position:fixed;top:${Math.random() * 80 + 10}%;left:50%;transform:translateX(-50%);z-index:9999;font-size:2rem;font-weight:bold;color:white;text-shadow:0 0 20px black;animation:float 3s ease-out;pointer-events:none;`;
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 3000);
+    }
+  });
 </script>
+
+<style>
+  @keyframes fall {
+    from { top: -100px; transform: rotate(0deg); }
+    to { top: 100vh; transform: rotate(360deg); }
+  }
+</style>
 
