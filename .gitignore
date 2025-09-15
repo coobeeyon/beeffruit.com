@@ -18,3 +18,4 @@ pnpm-debug.log*
 # local folders not part of this site
 /aoc2024/
 /celestial-corot/
+.astro/
