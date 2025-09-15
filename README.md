@@ -12,16 +12,16 @@ Absurdist, engagement-forward static site. Front-end only, built with Astro + Ta
 
 ```fish
 # install deps
-npm install
+yarn install
 
 # run dev
-npm run dev
+yarn dev
 
 # build
-npm run build
+yarn build
 
 # generate new content locally (adds MD files + updates feed JSON)
-BF_GENERATE_COUNT=10 npm run generate
+BF_GENERATE_COUNT=10 yarn generate
 ```
 
 ## CI Scheduled Content
