@@ -178,6 +178,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
               <cite class="text-sm opacity-60">- ${getRandomElement(['Ancient Wisdom', 'Internet Sage', 'My Uncle', 'Source: Trust Me', 'Anonymous Fruit'])}</cite>
             </blockquote>
             ${content.extra}
+            ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">EXPLORE →</div>' : ''}
           `;
           break;
           
@@ -188,6 +189,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
               <div class="text-4xl font-black text-brand-yellow mb-2">${percentage}%</div>
               <p class="text-sm">${content.title}</p>
               <div class="text-xs mt-2 opacity-60">Sample size: ${Math.floor(Math.random() * 10) + 1} ${getRandomElement(['people', 'fruits', 'beefs', 'vibes', 'thoughts'])}</div>
+              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">SEE DATA →</div>' : ''}
             </div>
           `;
           break;
@@ -198,6 +200,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
               <div class="text-red-400 font-bold mb-1">⚠️ ALERT ⚠️</div>
               <p class="text-sm">${content.title}</p>
               ${content.extra}
+              ${item.url ? '<div class="text-red-400 text-sm opacity-0 group-hover:opacity-100 transition mt-2">LEARN MORE →</div>' : ''}
             </div>
           `;
           break;
@@ -211,6 +214,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
                 <div>Ingredients: ${getRandomElement(['Chaos', 'Hope', 'Beef', 'Fruit', 'Vibes', 'Energy'])} + ${getRandomElement(['Dreams', 'Nightmares', 'Salt', 'Pepper', 'Love', 'Rage'])}</div>
                 <div class="mt-1">Instructions: ${getRandomElement(['Mix until confused', 'Shake vigorously', 'Contemplate existence', 'Add heat', 'Serve immediately', 'Abandon all hope'])}</div>
               </div>
+              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">GET RECIPE →</div>' : ''}
             </div>
           `;
           break;
@@ -223,6 +227,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
               <h3 class="font-bold mb-1">${content.title}</h3>
               <p class="text-sm opacity-80 mb-2">${item.blurb}</p>
               ${content.extra}
+              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-2">READ REVIEW →</div>' : ''}
             </div>
           `;
           break;
@@ -233,20 +238,27 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
               <div class="text-xs font-bold text-brand-green mb-1">🧠 FUN FACT</div>
               <p class="text-sm">${content.title}</p>
               <div class="text-xs mt-2 opacity-60">Source: ${getRandomElement(['Wikipedia', 'My dreams', 'Ancient scrolls', 'The void', 'Trust me bro'])}</div>
+              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-2">VERIFY →</div>' : ''}
             </div>
           `;
           break;
           
         default:
+          // Only show emoji sometimes, and vary the layout
+          const showEmoji = Math.random() > 0.4;
+          const showBlurb = Math.random() > 0.2;
+          
           cardHTML = `
             <div>
               <h3 class="font-bold text-lg mb-2">${content.title}</h3>
-              <p class="text-sm text-gray-300 mb-3">${item.blurb}</p>
+              ${showBlurb ? `<p class="text-sm text-gray-300 mb-3">${item.blurb}</p>` : ''}
               ${content.extra}
-              <div class="flex items-center justify-between mt-3">
-                <span class="text-2xl">${item.emoji || getRandomElement(['🤯', '🍖', '🍉', '🔥', '💥', '🌈', '🦾'])}</span>
-                ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
-              </div>
+              ${showEmoji || item.url ? `
+                <div class="flex items-center justify-between mt-3">
+                  ${showEmoji ? `<span class="text-2xl">${item.emoji || getRandomElement(['🤯', '🍖', '🍉', '🔥', '💥', '🌈', '🦾'])}</span>` : '<span></span>'}
+                  ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
+                </div>
+              ` : ''}
             </div>
           `;
       }
