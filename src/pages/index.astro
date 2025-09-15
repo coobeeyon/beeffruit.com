@@ -1,0 +1,42 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import InfiniteList from "../components/InfiniteList.astro";
+import Quiz from "../components/Quiz.astro";
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BeefFruit',
+  url: 'https://beeffruit.com'
+};
+---
+
+<Base title="BeefFruit — Internet oddities at unsafe speeds" description="Loud, bright, bizarre: a front-end carnival of articles, quizzes, and strange lists." canonicalUrl="https://beeffruit.com/" {structuredData}>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <section class="py-16 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+      <span class="text-brand-yellow">Beef</span><span class="text-brand-pink">Fruit</span>
+    </h1>
+    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+      Absurdist internet experiments. Maximum vibes, zero backend.
+    </p>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <a href="#feed" class="rounded-lg bg-brand-yellow text-black font-semibold px-5 py-3 hover:brightness-110">Dive in</a>
+      <a href="/articles" class="rounded-lg border border-white/20 px-5 py-3 hover:bg-white/10">Browse Articles</a>
+    </div>
+  </section>
+
+  <section id="feed" class="py-4">
+    <InfiniteList title="Trending Weirdness" />
+  </section>
+
+  <section id="quiz" class="py-16">
+    <Quiz />
+  </section>
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Base>
+

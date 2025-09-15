@@ -1,0 +1,30 @@
+---
+const q = Astro.props?.question ?? 'Beef or Fruit?';
+const answers = Astro.props?.answers ?? ['Beef', 'Fruit', 'Both'];
+const correct = Astro.props?.correct ?? 2; // index
+---
+<section class="py-8">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4">{q}</h2>
+  <div class="grid gap-3">
+    {answers.map((a, i) => (
+      <button class="rounded-lg border border-white/10 p-3 text-left hover:bg-white/10" data-i={i}>{a}</button>
+    ))}
+    <p id="bf-quiz-result" class="text-sm text-gray-300"></p>
+  </div>
+</section>
+<script>
+  const correct = Number({correct});
+  const result = document.getElementById('bf-quiz-result');
+  const buttons = Array.from(document.querySelectorAll('button[data-i]'));
+  buttons.forEach((btn) => btn.addEventListener('click', () => {
+    const idx = Number(btn.dataset.i);
+    if (idx === correct) {
+      result.textContent = 'Correct. Obviously.';
+      result.className = 'text-emerald-400';
+    } else {
+      result.textContent = 'Chaos says try again.';
+      result.className = 'text-rose-400';
+    }
+  }));
+</script>
+

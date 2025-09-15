@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles');
+  return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await post.render();
+const title = `${data.title} — BeefFruit`;
+const desc = data.description ?? 'BeefFruit article';
+const url = `https://beeffruit.com/articles/${post.slug}`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  datePublished: data.pubDate?.toISOString?.() ?? '',
+  author: { '@type': 'Organization', name: 'BeefFruit' },
+  mainEntityOfPage: url
+};
+---
+
+<Base {title} description={desc} canonicalUrl={url} structuredData={structuredData}>
+  <Fragment slot="header"><Header /></Fragment>
+  <article class="max-w-none">
+    <h1 class="mb-2 text-3xl font-bold">{data.title}</h1>
+    <p class="text-gray-400">{new Date(data.pubDate).toLocaleDateString?.() ?? ''}</p>
+    <div class="mt-6">
+      <Content />
+    </div>
+  </article>
+  <Fragment slot="footer"><Footer /></Fragment>
+</Base>
+

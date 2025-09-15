@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<Base title="404 — BeefFruit" description="The page evaporated into neon mist." canonicalUrl="https://beeffruit.com/404">
+  <Fragment slot="header"><Header /></Fragment>
+  <section class="py-20 text-center">
+    <h1 class="text-5xl font-extrabold">404</h1>
+    <p class="mt-4 text-gray-300">This page is currently beef, fruit, or missing.</p>
+    <div class="mt-8">
+      <a href="/" class="rounded-lg bg-brand-yellow text-black font-semibold px-5 py-3 hover:brightness-110">Back home</a>
+    </div>
+  </section>
+  <Fragment slot="footer"><Footer /></Fragment>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('articles')).sort((a,b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+---
+<Base title="BeefFruit Articles" description="Browse the latest articles from the BeefFruit lab." canonicalUrl="https://beeffruit.com/articles">
+  <Fragment slot="header"><Header /></Fragment>
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {posts.map((p) => (
+      <a href={`/articles/${p.slug}`} class="rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10">
+        <h2 class="font-bold text-lg">{p.data.title}</h2>
+        {p.data.description && <p class="text-sm text-gray-300 mt-1">{p.data.description}</p>}
+        <p class="text-xs text-gray-500 mt-2">{new Date(p.data.pubDate).toLocaleDateString?.() ?? ''}</p>
+      </a>
+    ))}
+  </section>
+  <Fragment slot="footer"><Footer /></Fragment>
+</Base>
+
