@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import InfiniteList from "../components/InfiniteList.astro";
 import Quiz from "../components/Quiz.astro";
+import ChaosWheel from "../components/ChaosWheel.astro";
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -11,32 +12,168 @@ const structuredData = {
   name: 'BeefFruit',
   url: 'https://beeffruit.com'
 };
+
+const breakingNews = [
+  "🚨 SCIENTISTS CONFIRM: TOMATOES ARE HAVING AN IDENTITY CRISIS",
+  "⚡ BREAKING: LOCAL MANGO REFUSES TO RIPEN, DEMANDS LAWYER",
+  "🔥 EXCLUSIVE: BEEF AND FRUIT SIGN HISTORIC PEACE TREATY",
+  "💥 URGENT: YOUR REFRIGERATOR MAY BE PLOTTING SOMETHING",
+  "🌟 LEAKED: SECRET FRUIT RANKINGS CAUSE GLOBAL PANIC"
+];
 ---
 
-<Base title="BeefFruit — Internet oddities at unsafe speeds" description="Loud, bright, bizarre: a front-end carnival of articles, quizzes, and strange lists." canonicalUrl="https://beeffruit.com/" {structuredData}>
+<Base title="BeefFruit — MAXIMUM INTERNET CHAOS" description="The most unhinged content farm on the web. We're not sorry." canonicalUrl="https://beeffruit.com/" {structuredData}>
   <Fragment slot="header"><Header /></Fragment>
 
-  <section class="py-16 text-center">
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-      <span class="text-brand-yellow">Beef</span><span class="text-brand-pink">Fruit</span>
-    </h1>
-    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-      Absurdist internet experiments. Maximum vibes, zero backend.
-    </p>
-    <div class="mt-8 flex items-center justify-center gap-3">
-      <a href="#feed" class="rounded-lg bg-brand-yellow text-black font-semibold px-5 py-3 hover:brightness-110">Dive in</a>
-      <a href="/articles" class="rounded-lg border border-white/20 px-5 py-3 hover:bg-white/10">Browse Articles</a>
+  <!-- Breaking News Ticker -->
+  <div class="animate-gradient overflow-hidden py-2">
+    <div class="ticker-content flex gap-8 text-black font-bold">
+      {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
+      {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
+    </div>
+  </div>
+
+  <!-- Chaotic Hero -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 animate-gradient opacity-20"></div>
+    <div class="relative text-center">
+      <div class="inline-block">
+        <h1 class="text-6xl md:text-8xl font-black glitch-text">
+          <span class="rainbow-text">BEEF</span><span class="text-white">vs</span><span class="rainbow-text">FRUIT</span>
+        </h1>
+        <div class="absolute -top-4 -right-4 text-4xl float-emoji">🥩</div>
+        <div class="absolute -bottom-4 -left-4 text-4xl float-emoji" style="animation-delay: 1s">🍉</div>
+      </div>
+      
+      <p class="mt-6 text-xl md:text-2xl font-bold text-brand-yellow glitch-text">
+        ⚠️ WARNING: EXTREME CONTENT AHEAD ⚠️
+      </p>
+      
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <button class="neon-glow rounded-xl bg-brand-pink text-white font-black px-8 py-4 text-lg shake-hover">
+          🔥 INJECT CHAOS INTO MY VEINS
+        </button>
+        <div class="text-3xl font-bold">
+          <span class="text-brand-green">👁</span>
+          <span class="text-white" id="viewer-count">69,420</span>
+          <span class="text-gray-400 text-sm">WATCHING NOW</span>
+        </div>
+      </div>
+
+      <div class="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+        <div class="text-center">
+          <div class="text-4xl font-black rainbow-text">24/7</div>
+          <div class="text-sm text-gray-400">CONTENT GENERATION</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-black rainbow-text">∞</div>
+          <div class="text-sm text-gray-400">SCROLL DEPTH</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-black rainbow-text">0%</div>
+          <div class="text-sm text-gray-400">MAKES SENSE</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="feed" class="py-4">
-    <InfiniteList title="Trending Weirdness" />
+  <!-- Countdown Timer to Nothing -->
+  <section class="py-8 text-center bg-black/50">
+    <h2 class="text-2xl font-bold text-brand-red">⏰ SOMETHING HAPPENS IN:</h2>
+    <div class="text-5xl font-black mt-4" id="countdown">00:47:23</div>
+    <p class="text-sm text-gray-500 mt-2">We don't know what</p>
+  </section>
+
+  <section id="feed" class="py-8">
+    <InfiniteList title="🔥 HOT GARBAGE TRENDING NOW 🔥" />
+  </section>
+
+  <!-- Random Fact Generator -->
+  <section class="py-12 text-center">
+    <div class="inline-block p-8 rounded-2xl bg-gradient-to-br from-brand-blue/20 to-brand-pink/20 border-2 border-white/20">
+      <h3 class="text-xl font-bold mb-4">💡 RANDOM FACT</h3>
+      <p class="text-2xl font-bold" id="random-fact">Bananas are berries but strawberries aren't</p>
+      <button class="mt-4 text-sm text-brand-yellow hover:text-white">↻ ANOTHER ONE</button>
+    </div>
   </section>
 
   <section id="quiz" class="py-16">
     <Quiz />
   </section>
 
+  <ChaosWheel />
+
+  <!-- Final call to chaos -->
+  <section class="py-20 text-center">
+    <h2 class="text-4xl font-black mb-4">
+      <span class="glitch-text">YOU'VE MADE IT THIS FAR</span>
+    </h2>
+    <p class="text-xl text-brand-yellow mb-8">Your fate is sealed. The algorithms know.</p>
+    <div class="inline-block p-8 rounded-2xl neon-glow">
+      <p class="text-6xl mb-4">🎭</p>
+      <p class="text-2xl font-bold rainbow-text">BEEF OR FRUIT?</p>
+      <p class="text-sm text-gray-400 mt-2">The answer was inside you all along</p>
+    </div>
+  </section>
+
   <Fragment slot="footer"><Footer /></Fragment>
 </Base>
+
+<style>
+  .ticker-content {
+    animation: scroll 30s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<script>
+  // Fake viewer count that changes
+  setInterval(() => {
+    const el = document.getElementById('viewer-count');
+    if (el) {
+      const current = parseInt(el.textContent.replace(/,/g, ''));
+      const change = Math.floor(Math.random() * 1000) - 400;
+      el.textContent = (current + change).toLocaleString();
+    }
+  }, 3000);
+
+  // Countdown timer to nothing
+  setInterval(() => {
+    const el = document.getElementById('countdown');
+    if (el) {
+      const parts = el.textContent.split(':').map(Number);
+      let [h, m, s] = parts;
+      s--;
+      if (s < 0) { s = 59; m--; }
+      if (m < 0) { m = 59; h--; }
+      if (h < 0) { h = 23; }
+      el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+  }, 1000);
+
+  // Random fact rotation
+  const facts = [
+    "Bananas are berries but strawberries aren't",
+    "A group of flamingos is called a 'flamboyance'",
+    "Honey never spoils. Ever. Think about that.",
+    "Octopi have three hearts and blue blood",
+    "You can't hum while holding your nose",
+    "Wombat poop is cube-shaped",
+    "The moon is moving away from Earth",
+    "Beef was illegal in Japan for 1200 years"
+  ];
+  
+  document.querySelector('button[class*="text-brand-yellow"]')?.addEventListener('click', () => {
+    const el = document.getElementById('random-fact');
+    if (el) {
+      el.textContent = facts[Math.floor(Math.random() * facts.length)];
+      el.classList.add('shake-hover');
+      setTimeout(() => el.classList.remove('shake-hover'), 500);
+    }
+  });
+</script>
 

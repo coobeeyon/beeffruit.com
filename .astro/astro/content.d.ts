@@ -141,6 +141,83 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
+"2025-09-15-14-of-people-can-t-tell-the-difference-between-fr.md": {
+	id: "2025-09-15-14-of-people-can-t-tell-the-difference-between-fr.md";
+  slug: "2025-09-15-14-of-people-can-t-tell-the-difference-between-fr";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-33-of-people-can-t-tell-the-difference-between-sa.md": {
+	id: "2025-09-15-33-of-people-can-t-tell-the-difference-between-sa.md";
+  slug: "2025-09-15-33-of-people-can-t-tell-the-difference-between-sa";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-5-kiwis-that-made-scientists-cry.md": {
+	id: "2025-09-15-5-kiwis-that-made-scientists-cry.md";
+  slug: "2025-09-15-5-kiwis-that-made-scientists-cry";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-64-of-people-can-t-tell-the-difference-between-av.md": {
+	id: "2025-09-15-64-of-people-can-t-tell-the-difference-between-av.md";
+  slug: "2025-09-15-64-of-people-can-t-tell-the-difference-between-av";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-86-of-people-can-t-tell-the-difference-between-sm.md": {
+	id: "2025-09-15-86-of-people-can-t-tell-the-difference-between-sm.md";
+  slug: "2025-09-15-86-of-people-can-t-tell-the-difference-between-sm";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-avocado-conspiracy-theories-that-explain-everythin.md": {
+	id: "2025-09-15-avocado-conspiracy-theories-that-explain-everythin.md";
+  slug: "2025-09-15-avocado-conspiracy-theories-that-explain-everythin";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-beef-conspiracy-theories-that-might-be-true.md": {
+	id: "2025-09-15-beef-conspiracy-theories-that-might-be-true.md";
+  slug: "2025-09-15-beef-conspiracy-theories-that-might-be-true";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-beef-vs-pudding-the-forbidden-showdown.md": {
+	id: "2025-09-15-beef-vs-pudding-the-forbidden-showdown.md";
+  slug: "2025-09-15-beef-vs-pudding-the-forbidden-showdown";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-breaking-bananas-are-watching-you.md": {
+	id: "2025-09-15-breaking-bananas-are-watching-you.md";
+  slug: "2025-09-15-breaking-bananas-are-watching-you";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-breaking-lasagnas-are-sentient.md": {
+	id: "2025-09-15-breaking-lasagnas-are-sentient.md";
+  slug: "2025-09-15-breaking-lasagnas-are-sentient";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-breaking-tomatos-are-actually-aliens.md": {
+	id: "2025-09-15-breaking-tomatos-are-actually-aliens.md";
+  slug: "2025-09-15-breaking-tomatos-are-actually-aliens";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "2025-09-15-chaotic-grapefruit-manifesto.md": {
 	id: "2025-09-15-chaotic-grapefruit-manifesto.md";
   slug: "2025-09-15-chaotic-grapefruit-manifesto";
@@ -242,6 +319,34 @@ declare module 'astro:content' {
 "2025-09-15-haunted-steak-chart.md": {
 	id: "2025-09-15-haunted-steak-chart.md";
   slug: "2025-09-15-haunted-steak-chart";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-i-let-ai-control-my-kiwi-choices-for-a-week-mista.md": {
+	id: "2025-09-15-i-let-ai-control-my-kiwi-choices-for-a-week-mista.md";
+  slug: "2025-09-15-i-let-ai-control-my-kiwi-choices-for-a-week-mista";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-i-let-ai-control-my-salad-choices-for-a-week-mist.md": {
+	id: "2025-09-15-i-let-ai-control-my-salad-choices-for-a-week-mist.md";
+  slug: "2025-09-15-i-let-ai-control-my-salad-choices-for-a-week-mist";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-mango-conspiracy-theories-that-will-haunt-you.md": {
+	id: "2025-09-15-mango-conspiracy-theories-that-will-haunt-you.md";
+  slug: "2025-09-15-mango-conspiracy-theories-that-will-haunt-you";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-mango-tier-list-2025-definitive-edition-controv.md": {
+	id: "2025-09-15-mango-tier-list-2025-definitive-edition-controv.md";
+  slug: "2025-09-15-mango-tier-list-2025-definitive-edition-controv";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -351,6 +456,27 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"2025-09-15-rating-beefs-based-on-their-chaos-level.md": {
+	id: "2025-09-15-rating-beefs-based-on-their-chaos-level.md";
+  slug: "2025-09-15-rating-beefs-based-on-their-chaos-level";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-rating-grapefruits-based-on-their-beef-content.md": {
+	id: "2025-09-15-rating-grapefruits-based-on-their-beef-content.md";
+  slug: "2025-09-15-rating-grapefruits-based-on-their-beef-content";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-rating-salads-based-on-their-chaos-level.md": {
+	id: "2025-09-15-rating-salads-based-on-their-chaos-level.md";
+  slug: "2025-09-15-rating-salads-based-on-their-chaos-level";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "2025-09-15-shiny-kiwi-poem.md": {
 	id: "2025-09-15-shiny-kiwi-poem.md";
   slug: "2025-09-15-shiny-kiwi-poem";
@@ -442,6 +568,55 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"2025-09-15-steak-vs-noodle-the-final-showdown.md": {
+	id: "2025-09-15-steak-vs-noodle-the-final-showdown.md";
+  slug: "2025-09-15-steak-vs-noodle-the-final-showdown";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-the-cursed-tomato-iceberg-explained.md": {
+	id: "2025-09-15-the-cursed-tomato-iceberg-explained.md";
+  slug: "2025-09-15-the-cursed-tomato-iceberg-explained";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-the-haunted-truth-about-noodles-that-big-beef-does.md": {
+	id: "2025-09-15-the-haunted-truth-about-noodles-that-big-beef-does.md";
+  slug: "2025-09-15-the-haunted-truth-about-noodles-that-big-beef-does";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-the-quantum-grapefruit-iceberg-explained.md": {
+	id: "2025-09-15-the-quantum-grapefruit-iceberg-explained.md";
+  slug: "2025-09-15-the-quantum-grapefruit-iceberg-explained";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-the-sleepy-beef-iceberg-explained.md": {
+	id: "2025-09-15-the-sleepy-beef-iceberg-explained.md";
+  slug: "2025-09-15-the-sleepy-beef-iceberg-explained";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-this-one-mystic-steak-trick-will-break-reality.md": {
+	id: "2025-09-15-this-one-mystic-steak-trick-will-break-reality.md";
+  slug: "2025-09-15-this-one-mystic-steak-trick-will-break-reality";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-tomato-tier-list-2025-definitive-edition-contro.md": {
+	id: "2025-09-15-tomato-tier-list-2025-definitive-edition-contro.md";
+  slug: "2025-09-15-tomato-tier-list-2025-definitive-edition-contro";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "2025-09-15-turbo-avocado-list.md": {
 	id: "2025-09-15-turbo-avocado-list.md";
   slug: "2025-09-15-turbo-avocado-list";
@@ -487,6 +662,41 @@ declare module 'astro:content' {
 "2025-09-15-turbo-steak-tutorial.md": {
 	id: "2025-09-15-turbo-steak-tutorial.md";
   slug: "2025-09-15-turbo-steak-tutorial";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-we-need-to-talk-about-the-avocado-problem.md": {
+	id: "2025-09-15-we-need-to-talk-about-the-avocado-problem.md";
+  slug: "2025-09-15-we-need-to-talk-about-the-avocado-problem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-we-need-to-talk-about-the-fruit-problem.md": {
+	id: "2025-09-15-we-need-to-talk-about-the-fruit-problem.md";
+  slug: "2025-09-15-we-need-to-talk-about-the-fruit-problem";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-you-won-t-believe-what-this-pear-did-emotional.md": {
+	id: "2025-09-15-you-won-t-believe-what-this-pear-did-emotional.md";
+  slug: "2025-09-15-you-won-t-believe-what-this-pear-did-emotional";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-you-won-t-believe-what-this-pudding-did-emotional.md": {
+	id: "2025-09-15-you-won-t-believe-what-this-pudding-did-emotional.md";
+  slug: "2025-09-15-you-won-t-believe-what-this-pudding-did-emotional";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"2025-09-15-you-won-t-believe-what-this-pudding-did-gone-wron.md": {
+	id: "2025-09-15-you-won-t-believe-what-this-pudding-did-gone-wron.md";
+  slug: "2025-09-15-you-won-t-believe-what-this-pudding-did-gone-wron";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
