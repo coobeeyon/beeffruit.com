@@ -13,6 +13,132 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
   let idx = 0;
   const batch = 12;
 
+  // Chaos configuration
+  const bgColors = [
+    'bg-gradient-to-br from-brand-pink/20 to-brand-yellow/30',
+    'bg-gradient-to-tl from-brand-green/30 to-brand-blue/20',
+    'bg-gradient-to-r from-purple-600/20 to-pink-600/30',
+    'bg-gradient-to-bl from-red-600/20 to-orange-500/30',
+    'bg-gradient-to-tr from-cyan-500/20 to-teal-500/30',
+    'bg-black/40',
+    'bg-white/5',
+    'bg-brand-pink/10',
+    'bg-brand-yellow/10',
+    'bg-brand-green/10',
+    'bg-brand-blue/10',
+    'bg-gradient-radial from-brand-pink/40 via-transparent to-brand-yellow/40',
+    'bg-gradient-conic from-red-500/20 via-yellow-500/20 to-red-500/20',
+    'bg-stripes bg-stripes-brand-pink',
+    'bg-dots bg-dots-brand-yellow/20',
+    'backdrop-blur-sm bg-white/[0.02]',
+    'bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20'
+  ];
+
+  const borderStyles = [
+    'border-2 border-brand-pink/50',
+    'border border-brand-yellow',
+    'border-4 border-dashed border-brand-green/30',
+    'border-2 border-dotted border-brand-blue/50',
+    'border-l-8 border-l-brand-pink',
+    'border-t-4 border-t-brand-yellow',
+    'border border-white/20',
+    'border-2 border-double border-purple-500/40',
+    'border-0',
+    'border-b-4 border-b-gradient-to-r from-brand-pink to-brand-yellow',
+    'border-8 border-black',
+    'border-x-4 border-x-brand-pink border-y-4 border-y-brand-yellow',
+    'ring-4 ring-brand-green/50 ring-offset-4 ring-offset-black',
+    'border-wavy',
+    'outline outline-2 outline-offset-2 outline-brand-pink'
+  ];
+
+  const textColors = [
+    '',
+    'text-brand-pink',
+    'text-brand-yellow',
+    'text-brand-green',
+    'text-brand-blue',
+    'text-purple-400',
+    'text-orange-400',
+    'text-cyan-400'
+  ];
+
+  const rotations = [
+    '',
+    'rotate-1',
+    '-rotate-1',
+    'rotate-2',
+    '-rotate-2',
+    'rotate-3',
+    '-rotate-3',
+    'rotate-6',
+    '-rotate-6',
+    'rotate-12',
+    '-rotate-12',
+    'hover:rotate-180',
+    'hover:-rotate-180',
+    'skew-x-3',
+    '-skew-x-3',
+    'skew-y-3',
+    '-skew-y-3',
+    'hover:skew-x-6',
+    'hover:-skew-y-6'
+  ];
+
+  const animations = [
+    '',
+    'animate-pulse',
+    'hover:animate-pulse',
+    'float-card',
+    'hover:scale-105',
+    'hover:scale-110',
+    'hover:scale-125',
+    'hover:scale-95',
+    'hover:scale-x-110',
+    'hover:scale-y-110',
+    'hover:-translate-y-2',
+    'hover:-translate-x-2',
+    'shimmer',
+    'glitch-card',
+    'wobble',
+    'bounce-card',
+    'spin-slow',
+    'ping-once',
+    'jello',
+    'rubber-band'
+  ];
+
+  const shapes = [
+    'rounded-xl',
+    'rounded-3xl',
+    'rounded-none',
+    'rounded-tl-3xl rounded-br-3xl',
+    'rounded-tr-3xl rounded-bl-3xl',
+    'rounded-t-3xl',
+    'rounded-b-3xl',
+    'rounded-full',
+    'rounded-tl-none rounded-tr-3xl rounded-br-none rounded-bl-3xl',
+    'clip-hexagon',
+    'clip-triangle',
+    'clip-diamond',
+    'clip-star'
+  ];
+
+  const specialEffects = [
+    '',
+    'shadow-lg shadow-brand-pink/30',
+    'shadow-xl shadow-brand-yellow/20',
+    'ring-2 ring-brand-green ring-offset-2 ring-offset-black',
+    'blur-[0.5px] hover:blur-0',
+    'saturate-150',
+    'contrast-125',
+    'neon-card'
+  ];
+
+  function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
   async function load() {
     if (all.length === 0) {
       try {
@@ -26,19 +152,67 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
     const container = document.getElementById('bf-feed');
     const slice = all.slice(idx, idx + batch);
     idx += slice.length;
-    for (const item of slice) {
+    
+    for (let i = 0; i < slice.length; i++) {
+      const item = slice[i];
       const tag = item.url ? 'a' : 'article';
       const card = document.createElement(tag);
-      card.className = 'group rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 transition block';
+      
+      // Build random classes
+      const classes = [
+        'group block p-4 transition-all duration-300 transform',
+        getRandomElement(bgColors),
+        getRandomElement(borderStyles),
+        getRandomElement(shapes),
+        getRandomElement(rotations),
+        getRandomElement(animations),
+        getRandomElement(specialEffects)
+      ].filter(Boolean).join(' ');
+      
+      card.className = classes;
+      
       if (item.url) card.setAttribute('href', item.url);
+      
+      // Randomize title size and style
+      const titleSizes = ['text-lg', 'text-xl', 'text-2xl', 'text-base', 'text-sm font-black uppercase', 'text-3xl', 'text-xs font-bold', 'text-4xl font-thin'];
+      const titleColor = getRandomElement(textColors);
+      const titleEffects = Math.random() > 0.7 ? 'glitch-text' : Math.random() > 0.8 ? 'rainbow-text' : Math.random() > 0.9 ? 'text-stroke' : '';
+      
+      // Randomize emoji size and position
+      const emojiSizes = ['text-3xl', 'text-4xl', 'text-5xl', 'text-2xl', 'text-6xl'];
+      const emojiFloat = Math.random() > 0.5 ? 'float-emoji' : '';
+      
+      // Randomize blurb appearance
+      const blurbOpacity = Math.random() > 0.3 ? '' : 'opacity-60';
+      const blurbStyle = Math.random() > 0.8 ? 'italic' : '';
+      
+      // Special chaos for some cards
+      const isChaotic = Math.random() > 0.85;
+      const chaosClass = isChaotic ? 'overflow-hidden relative chaos-overflow' : '';
+      
       card.innerHTML = `
-        <h3 class="font-bold text-lg mb-2">${item.title}</h3>
-        <p class="text-sm text-gray-300">${item.blurb}</p>
-        <div class="mt-3 flex items-center justify-between">
-          <span class="text-3xl">${item.emoji ?? ''}</span>
-          ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">Read →</span>' : ''}
+        ${isChaotic ? '<div class="absolute inset-0 animate-gradient opacity-20"></div>' : ''}
+        <div class="${isChaotic ? 'relative z-10' : ''} ${Math.random() > 0.95 ? 'mix-blend-difference' : ''}">
+          <h3 class="font-bold mb-2 ${titleSizes[i % titleSizes.length]} ${titleColor} ${titleEffects} ${Math.random() > 0.9 ? 'writing-vertical' : ''}">
+            ${Math.random() > 0.85 ? ['⚡', '🔥', '💥', '🌟', '👁️', '⚠️', '🚨', '💀', '🎯', '🎪'][Math.floor(Math.random() * 10)] + ' ' : ''}${item.title}${Math.random() > 0.85 ? ' ' + ['🔥', '💯', '⚡', '🤯', '👀', '🎪', '🌈'][Math.floor(Math.random() * 7)] : ''}
+          </h3>
+          <p class="text-sm text-gray-300 ${blurbOpacity} ${blurbStyle} ${Math.random() > 0.92 ? 'line-through' : ''} ${Math.random() > 0.95 ? 'blur-[1px]' : ''}">${item.blurb}</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="${getRandomElement(emojiSizes)} ${emojiFloat} ${Math.random() > 0.9 ? 'animate-spin' : ''}">${item.emoji ?? '🤯'}</span>
+            ${item.url ? `<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition ${Math.random() > 0.5 ? 'font-bold' : ''} ${Math.random() > 0.8 ? 'uppercase' : ''}">` + 
+              ['READ →', 'GO DEEPER ↓', 'CONSUME 👁', 'WITNESS', 'ABSORB', '>>> ENTER <<<', 'CLICK ME', '🔥 HOT 🔥', 'YES', '???'][Math.floor(Math.random() * 10)] + '</span>' : ''}
+          </div>
+          ${Math.random() > 0.9 ? `<div class="absolute -top-2 -right-2 ${['bg-red-600', 'bg-brand-pink', 'bg-brand-yellow text-black', 'bg-gradient-to-r from-red-600 to-yellow-500'][Math.floor(Math.random() * 4)]} text-white text-xs px-2 py-1 ${['rounded-full', 'rounded-none', 'rounded'][Math.floor(Math.random() * 3)]} font-bold ${Math.random() > 0.5 ? 'animate-pulse' : ''}">${['HOT', 'NEW', 'VIRAL', 'OMG', 'WTF', '!!!', 'REAL', '100%'][Math.floor(Math.random() * 8)]}</div>` : ''}
+          ${Math.random() > 0.93 ? `<div class="absolute -bottom-1 -left-1 text-xs opacity-50 ${Math.random() > 0.5 ? 'italic' : ''}">${['sponsored', 'ad', 'promoted', '#ad', 'partner'][Math.floor(Math.random() * 5)]}</div>` : ''}
+          ${Math.random() > 0.96 ? '<div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 to-transparent"></div>' : ''}
         </div>
       `;
+      
+      // Add random delay to stagger animations
+      if (card.classList.contains('float-card') || card.classList.contains('wobble')) {
+        card.style.animationDelay = `${Math.random() * 2}s`;
+      }
+      
       container.appendChild(card);
     }
   }
