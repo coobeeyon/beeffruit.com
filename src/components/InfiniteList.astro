@@ -1,119 +1,141 @@
 ---
 const title = Astro.props?.title ?? 'Trending Weirdness';
 ---
-<section class="py-8 overflow-x-hidden">
+<section class="py-8">
   <h2 class="text-2xl md:text-3xl font-bold mb-4">{title}</h2>
-  <div id="bf-feed" class="relative min-h-[800px]"></div>
-  <button id="bf-more" class="mt-6 w-full rounded-lg bg-brand-pink/20 text-brand-pink hover:bg-brand-pink/30 py-3 font-semibold relative z-50">More oddities</button>
+  <div id="bf-feed" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4"></div>
+  <button id="bf-more" class="mt-6 w-full rounded-lg bg-brand-pink/20 text-brand-pink hover:bg-brand-pink/30 py-3 font-semibold">More oddities</button>
 </section>
 
 <script>
   const FEED_URL = '/data/items.json';
   let all = [];
   let idx = 0;
-  const batch = 15;
-  let currentY = 0;
-  let zones = [];
+  const batch = 12;
 
-  // Layout patterns
-  const layouts = [
-    'standard',
-    'wide',
-    'tall',
-    'huge',
-    'tiny',
-    'floating',
-    'diagonal',
-    'overlapping'
+  // Content chaos generators
+  const prefixes = [
+    '🚨 BREAKING:', '⚠️ WARNING:', '💥 EXCLUSIVE:', '🔥 HOT TAKE:', 
+    '👁️ THEY DON\'T WANT YOU TO KNOW:', '🎯 FACT:', '🌟 LEAKED:', 
+    '💀 CURSED:', '🔮 PREDICTION:', '🎪 CIRCUS ALERT:', '🧠 BIG BRAIN:',
+    '⚡ URGENT:', '🎭 PLOT TWIST:', '🌈 MIRACLE:', '🦾 GIGACHAD:'
   ];
 
-  // Simple, readable backgrounds
-  const bgColors = [
-    'bg-black/90',
-    'bg-brand-pink/20',
-    'bg-brand-yellow/20',
-    'bg-brand-green/20',
-    'bg-brand-blue/20',
-    'bg-gradient-to-br from-black/80 to-brand-pink/20',
-    'bg-gradient-to-tl from-black/80 to-brand-yellow/20',
-    'bg-white/5',
-    'bg-purple-900/20',
-    'bg-red-900/20'
+  const suffixes = [
+    '(GONE WRONG)', '(EMOTIONAL)', '(3AM CHALLENGE)', '(NOT CLICKBAIT)',
+    '(COPS CALLED)', '(SCIENTIFICALLY PROVEN)', '(DOCTORS HATE THIS)',
+    '(YOU WON\'T BELIEVE #7)', '(LIFE-CHANGING)', '(INSTANT REGRET)',
+    '(99% FAIL)', '(IMPOSSIBLE)', '(GLITCH IN THE MATRIX)', '(REAL)',
+    '??? EXPLAINED', '... AND THAT\'S A GOOD THING', '[UPDATED 2025]'
   ];
 
-  const borderStyles = [
-    'border-2 border-brand-pink/50',
-    'border border-brand-yellow',
-    'border-l-4 border-l-brand-pink',
-    'border-t-4 border-t-brand-yellow',
-    'border border-white/20',
-    'border-0',
-    'border-2 border-white/10'
+  const ratings = [
+    '⭐⭐⭐⭐⭐ 5/5 BEEF', '🍖 10/10 MEAT SCORE', '🥩 PRIME CUT',
+    '🍉 FRUIT LEVEL: MAXIMUM', '💯 CERTIFIED', '✅ FACT-CHECKED BY NOBODY',
+    '🏆 AWARD-WINNING NONSENSE', '📊 87% OF STATISTICS ARE MADE UP',
+    '🎯 ACCURACY: QUESTIONABLE', '🔬 PEER REVIEWED BY MY CAT'
+  ];
+
+  const warnings = [
+    '⚠️ Side effects may include enlightenment',
+    '⚠️ Not suitable for robots',
+    '⚠️ Contains trace amounts of truth',
+    '⚠️ May cause spontaneous beef cravings',
+    '⚠️ Warranty void if actually read',
+    '⚠️ FDA has not evaluated these claims',
+    '⚠️ Results not typical',
+    '⚠️ May contain nuts (definitely contains fruits)'
+  ];
+
+  const testimonials = [
+    '"Changed my life" - Anonymous Beef',
+    '"I can\'t stop reading" - Local Fruit',
+    '"This cured my boredom" - Internet Person',
+    '"10/10 would click again" - Your Mom',
+    '"Finally, the truth!" - Conspiracy Theorist',
+    '"I showed this to my therapist" - Reddit User',
+    '"Why did I read this?" - You, probably'
+  ];
+
+  const prices = [
+    'WAS $999 NOW FREE', 'LIMITED TIME: $0.00', 'SPECIAL OFFER: YOUR SOUL',
+    'PRICE: 3 EASY PAYMENTS OF CHAOS', 'VALUE: PRICELESS', 'COST: 5 MINUTES YOU\'LL NEVER GET BACK'
   ];
 
   function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  function getCardDimensions(layout) {
-    switch(layout) {
-      case 'wide': return { w: 400 + Math.random() * 200, h: 150 + Math.random() * 50 };
-      case 'tall': return { w: 200 + Math.random() * 50, h: 300 + Math.random() * 100 };
-      case 'huge': return { w: 500 + Math.random() * 100, h: 400 + Math.random() * 100 };
-      case 'tiny': return { w: 150 + Math.random() * 50, h: 100 + Math.random() * 50 };
-      case 'standard': return { w: 280 + Math.random() * 40, h: 180 + Math.random() * 40 };
-      case 'floating': return { w: 250 + Math.random() * 50, h: 200 + Math.random() * 50 };
-      case 'diagonal': return { w: 300 + Math.random() * 100, h: 200 + Math.random() * 100 };
-      case 'overlapping': return { w: 320 + Math.random() * 80, h: 220 + Math.random() * 60 };
-      default: return { w: 280, h: 180 };
-    }
+  function generateChaosContent(item) {
+    const templates = [
+      // Standard with prefix/suffix
+      () => ({
+        title: `${Math.random() > 0.5 ? getRandomElement(prefixes) + ' ' : ''}${item.title}${Math.random() > 0.5 ? ' ' + getRandomElement(suffixes) : ''}`,
+        extra: Math.random() > 0.7 ? getRandomElement(ratings) : ''
+      }),
+      // Review format
+      () => ({
+        title: item.title,
+        extra: `<div class="mt-2 text-xs opacity-80">${getRandomElement(testimonials)}</div>`
+      }),
+      // Warning format
+      () => ({
+        title: item.title.toUpperCase(),
+        extra: `<div class="mt-2 text-xs text-yellow-400">${getRandomElement(warnings)}</div>`
+      }),
+      // Price drop format
+      () => ({
+        title: item.title,
+        extra: `<div class="mt-2 text-sm font-bold text-brand-green">${getRandomElement(prices)}</div>`
+      }),
+      // Question format
+      () => ({
+        title: `Is ${item.title}? The Answer Will SHOCK You`,
+        extra: ''
+      }),
+      // Versus format
+      () => ({
+        title: `${item.title} vs. ${getRandomElement(['REALITY', 'YOUR EXPECTATIONS', 'COMMON SENSE', 'THE ESTABLISHMENT', 'BIG FRUIT'])}`,
+        extra: ''
+      }),
+      // List format
+      () => ({
+        title: `${Math.floor(Math.random() * 50 + 5)} Reasons Why ${item.title}`,
+        extra: `<div class="text-xs mt-1">#${Math.floor(Math.random() * 20 + 1)} will make you cry</div>`
+      }),
+      // Timeline format
+      () => ({
+        title: item.title,
+        extra: `<div class="text-xs mt-2 opacity-60">Posted ${Math.floor(Math.random() * 59 + 1)} ${getRandomElement(['seconds', 'minutes', 'hours', 'days', 'years', 'centuries'])} ago</div>`
+      }),
+      // BREAKING NEWS format
+      () => ({
+        title: item.title,
+        extra: `<div class="text-xs mt-2 text-red-500 font-bold animate-pulse">DEVELOPING STORY</div>`
+      }),
+      // Recipe format
+      () => ({
+        title: `RECIPE: ${item.title}`,
+        extra: `<div class="text-xs mt-1">Prep: ${Math.random() * 100}min | Serves: ${Math.random() > 0.5 ? 'Nobody' : Math.floor(Math.random() * 1000)}</div>`
+      })
+    ];
+
+    return templates[Math.floor(Math.random() * templates.length)]();
   }
 
-  function findAvailablePosition(width, height, container) {
-    const containerWidth = container.offsetWidth;
-    const maxAttempts = 50;
-    let attempt = 0;
-    
-    while (attempt < maxAttempts) {
-      let x, y;
-      
-      // Try different positioning strategies
-      if (Math.random() > 0.7) {
-        // Cluster near existing content
-        if (zones.length > 0) {
-          const zone = zones[Math.floor(Math.random() * zones.length)];
-          x = zone.x + (Math.random() - 0.5) * 200;
-          y = zone.y + (Math.random() - 0.5) * 200;
-        } else {
-          x = Math.random() * (containerWidth - width);
-          y = currentY + Math.random() * 200;
-        }
-      } else {
-        // Random placement with some structure
-        const column = Math.floor(Math.random() * 3);
-        x = (containerWidth / 3) * column + Math.random() * (containerWidth / 3 - width);
-        y = currentY + Math.random() * 300;
-      }
-      
-      // Keep within bounds
-      x = Math.max(0, Math.min(x, containerWidth - width));
-      y = Math.max(0, y);
-      
-      // Add some intentional overlapping
-      if (Math.random() > 0.8 && zones.length > 0) {
-        const overlap = zones[zones.length - 1];
-        x = overlap.x + Math.random() * 50 - 25;
-        y = overlap.y + Math.random() * 50 - 25;
-      }
-      
-      return { x, y };
-    }
-    
-    // Fallback
-    return { 
-      x: Math.random() * (containerWidth - width), 
-      y: currentY 
-    };
+  // Card type generators for content variety
+  function generateCardType() {
+    const types = [
+      { type: 'standard', height: 'auto' },
+      { type: 'tall', height: 'min-h-[300px]' },
+      { type: 'quote', height: 'auto' },
+      { type: 'stat', height: 'auto' },
+      { type: 'warning', height: 'auto' },
+      { type: 'recipe', height: 'auto' },
+      { type: 'review', height: 'auto' },
+      { type: 'fact', height: 'auto' }
+    ];
+    return types[Math.floor(Math.random() * types.length)];
   }
 
   async function load() {
@@ -131,102 +153,117 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
     const slice = all.slice(idx, idx + batch);
     idx += slice.length;
     
-    // Calculate container height dynamically
-    let maxY = currentY;
-    
     for (let i = 0; i < slice.length; i++) {
       const item = slice[i];
       const tag = item.url ? 'a' : 'article';
       const card = document.createElement(tag);
       
-      // Choose layout type
-      const layout = getRandomElement(layouts);
-      const dimensions = getCardDimensions(layout);
-      const position = findAvailablePosition(dimensions.w, dimensions.h, container);
+      // Generate chaotic content
+      const content = generateChaosContent(item);
+      const cardType = generateCardType();
       
-      // Store zone for clustering
-      zones.push({ x: position.x, y: position.y, w: dimensions.w, h: dimensions.h });
-      
-      // Position absolutely
-      card.style.position = 'absolute';
-      card.style.left = `${position.x}px`;
-      card.style.top = `${position.y}px`;
-      card.style.width = `${dimensions.w}px`;
-      card.style.height = `${dimensions.h}px`;
-      card.style.zIndex = Math.floor(Math.random() * 10) + 1;
-      
-      // Rotation for variety
-      const rotation = Math.random() * 6 - 3;
-      card.style.transform = `rotate(${rotation}deg)`;
-      
-      // Build classes for styling
-      const classes = [
-        'group block p-4 transition-all duration-300 overflow-hidden',
-        getRandomElement(bgColors),
-        getRandomElement(borderStyles),
-        'rounded-lg hover:z-50 hover:scale-105'
-      ].join(' ');
-      
-      card.className = classes;
+      // Clean, consistent styling
+      card.className = `group block break-inside-avoid mb-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200 ${cardType.height}`;
       
       if (item.url) card.setAttribute('href', item.url);
       
-      // Adjust content based on card size
-      const isSmall = layout === 'tiny';
-      const isLarge = layout === 'huge' || layout === 'wide';
+      // Generate different card layouts based on type
+      let cardHTML = '';
       
-      // Title sizing based on card size
-      const titleSize = isSmall ? 'text-sm font-bold' : 
-                       isLarge ? 'text-2xl font-black' : 
-                       'text-lg font-bold';
-      
-      // Show/hide blurb based on size
-      const showBlurb = !isSmall || Math.random() > 0.5;
-      
-      card.innerHTML = `
-        <div class="h-full flex flex-col justify-between">
-          <div>
-            <h3 class="${titleSize} mb-2 line-clamp-3">
-              ${item.title}
-            </h3>
-            ${showBlurb ? `<p class="text-sm text-gray-300 line-clamp-2">${item.blurb}</p>` : ''}
-          </div>
-          <div class="mt-auto pt-2 flex items-center justify-between">
-            <span class="text-2xl">${item.emoji ?? '🎲'}</span>
-            ${item.url ? `<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition font-bold">
-              ${layout === 'tiny' ? '→' : 'VIEW'}
-            </span>` : ''}
-          </div>
-          ${Math.random() > 0.85 ? `<div class="absolute top-2 right-2 bg-brand-pink text-white text-xs px-2 py-1 rounded font-bold">
-            ${['NEW', 'HOT', 'WILD'][Math.floor(Math.random() * 3)]}
-          </div>` : ''}
-        </div>
-      `;
-      
-      // Special effects for certain layouts
-      if (layout === 'floating') {
-        card.classList.add('hover:-translate-y-2');
+      switch(cardType.type) {
+        case 'quote':
+          cardHTML = `
+            <blockquote class="border-l-4 border-brand-pink pl-4">
+              <p class="text-lg italic mb-2">"${content.title}"</p>
+              <cite class="text-sm opacity-60">- ${getRandomElement(['Ancient Wisdom', 'Internet Sage', 'My Uncle', 'Source: Trust Me', 'Anonymous Fruit'])}</cite>
+            </blockquote>
+            ${content.extra}
+          `;
+          break;
+          
+        case 'stat':
+          const percentage = Math.floor(Math.random() * 100);
+          cardHTML = `
+            <div class="text-center">
+              <div class="text-4xl font-black text-brand-yellow mb-2">${percentage}%</div>
+              <p class="text-sm">${content.title}</p>
+              <div class="text-xs mt-2 opacity-60">Sample size: ${Math.floor(Math.random() * 10) + 1} ${getRandomElement(['people', 'fruits', 'beefs', 'vibes', 'thoughts'])}</div>
+            </div>
+          `;
+          break;
+          
+        case 'warning':
+          cardHTML = `
+            <div class="bg-red-900/20 border border-red-500/30 rounded p-3">
+              <div class="text-red-400 font-bold mb-1">⚠️ ALERT ⚠️</div>
+              <p class="text-sm">${content.title}</p>
+              ${content.extra}
+            </div>
+          `;
+          break;
+          
+        case 'recipe':
+          cardHTML = `
+            <div>
+              <div class="text-xs text-brand-green mb-1">RECIPE</div>
+              <h3 class="font-bold mb-2">${content.title}</h3>
+              <div class="text-sm opacity-80">
+                <div>Ingredients: ${getRandomElement(['Chaos', 'Hope', 'Beef', 'Fruit', 'Vibes', 'Energy'])} + ${getRandomElement(['Dreams', 'Nightmares', 'Salt', 'Pepper', 'Love', 'Rage'])}</div>
+                <div class="mt-1">Instructions: ${getRandomElement(['Mix until confused', 'Shake vigorously', 'Contemplate existence', 'Add heat', 'Serve immediately', 'Abandon all hope'])}</div>
+              </div>
+            </div>
+          `;
+          break;
+          
+        case 'review':
+          const stars = Math.floor(Math.random() * 5) + 1;
+          cardHTML = `
+            <div>
+              <div class="text-brand-yellow mb-1">${'⭐'.repeat(stars)}${'☆'.repeat(5-stars)}</div>
+              <h3 class="font-bold mb-1">${content.title}</h3>
+              <p class="text-sm opacity-80 mb-2">${item.blurb}</p>
+              ${content.extra}
+            </div>
+          `;
+          break;
+          
+        case 'fact':
+          cardHTML = `
+            <div class="bg-gradient-to-br from-brand-blue/20 to-brand-green/20 rounded p-3">
+              <div class="text-xs font-bold text-brand-green mb-1">🧠 FUN FACT</div>
+              <p class="text-sm">${content.title}</p>
+              <div class="text-xs mt-2 opacity-60">Source: ${getRandomElement(['Wikipedia', 'My dreams', 'Ancient scrolls', 'The void', 'Trust me bro'])}</div>
+            </div>
+          `;
+          break;
+          
+        default:
+          cardHTML = `
+            <div>
+              <h3 class="font-bold text-lg mb-2">${content.title}</h3>
+              <p class="text-sm text-gray-300 mb-3">${item.blurb}</p>
+              ${content.extra}
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl">${item.emoji || getRandomElement(['🤯', '🍖', '🍉', '🔥', '💥', '🌈', '🦾'])}</span>
+                ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
+              </div>
+            </div>
+          `;
       }
-      if (layout === 'diagonal') {
-        card.style.transform = `rotate(${rotation * 3}deg)`;
-      }
-      if (layout === 'overlapping' && i > 0) {
-        card.style.opacity = '0.95';
+      
+      // Add random badges
+      if (Math.random() > 0.8) {
+        const badges = [
+          '<span class="absolute -top-2 -right-2 bg-brand-pink text-white text-xs px-2 py-1 rounded-full font-bold">NEW</span>',
+          '<span class="absolute -top-2 -right-2 bg-brand-yellow text-black text-xs px-2 py-1 rounded-full font-bold">HOT</span>',
+          '<span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">LIVE</span>',
+          '<span class="absolute -top-2 -right-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-2 py-1 rounded-full font-bold">VIRAL</span>'
+        ];
+        cardHTML = `<div class="relative">${cardHTML}${getRandomElement(badges)}</div>`;
       }
       
+      card.innerHTML = cardHTML;
       container.appendChild(card);
-      
-      // Track maximum Y for container height
-      maxY = Math.max(maxY, position.y + dimensions.h);
-    }
-    
-    // Update container height
-    container.style.minHeight = `${maxY + 100}px`;
-    currentY = maxY - 300; // Some overlap for next batch
-    
-    // Keep only recent zones to prevent memory issues
-    if (zones.length > 50) {
-      zones = zones.slice(-30);
     }
   }
 
