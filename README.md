@@ -1,5 +1,7 @@
 # BeefFruit 🥩🍉
 
+**Live Site: [beeffruit-com.vercel.app](https://beeffruit-com.vercel.app)**
+
 High-performance content farm parody. Built with Astro 5 + Tailwind, deployed on Vercel.
 
 ## Tech Stack
@@ -48,7 +50,7 @@ src/pages/
 
 ## Deployment Notes
 
-- Currently deployed at: beeffruit-com.vercel.app
+- **Live Site:** [https://beeffruit-com.vercel.app](https://beeffruit-com.vercel.app)
 - Custom domain: beeffruit.com (to be configured)
 - See `.warp.md` for detailed deployment history
 
