@@ -1,35 +1,54 @@
-# BeefFruit
+# BeefFruit 🥩🍉
 
-Absurdist, engagement-forward static site. Front-end only, built with Astro + Tailwind.
+High-performance content farm parody. Built with Astro 5 + Tailwind, deployed on Vercel.
 
-- SSG: Astro
-- Styling: Tailwind (no inline styles)
-- Content: Markdown via Astro content collections
-- Engagement: Infinite feed (static JSON), quizzes (client island)
-- SEO: Meta tags, OpenGraph/Twitter, sitemap, robots.txt, JSON-LD
+## Tech Stack
 
-## Dev (fish shell)
+- **Framework:** Astro 5.13.7 (hybrid SSR/SSG)
+- **Styling:** Tailwind CSS (minimal, Medium-inspired design)
+- **Deployment:** Vercel with @astrojs/vercel adapter  
+- **Package Manager:** Yarn (not npm!)
+- **Content:** Dynamic article generation (no 404s possible)
+
+## Quick Start
 
 ```fish
-# install deps
+# Install dependencies
 yarn install
 
-# run dev
+# Development server
 yarn dev
 
-# build
+# Build for production
 yarn build
 
-# generate new content locally (adds MD files + updates feed JSON)
-BF_GENERATE_COUNT=10 yarn generate
+# Deploy to Vercel (preview)
+npx vercel
+
+# Deploy to Vercel (production)
+npx vercel --prod
 ```
 
-## CI Scheduled Content
+## Key Features
 
-- GitHub Actions workflow runs every 12 hours to generate and commit content.
-- Connect your repo to GitHub and enable Actions. For deployment (e.g., Pages, Netlify), add a deploy job.
+- **Smart Content Recycling:** Every article URL generates deterministic content
+- **Viral Article:** "27 Fruits That Are Secretly Meat" (47.2M views)
+- **Interactive Quiz:** "Which Fruit Are You?" personality test
+- **Live Engagement:** Counters, polls, trending sections
+- **Mobile-First:** Responsive with mobile engagement features
 
-## Domain
+## Project Structure
 
-- Point beeffruit.com DNS to your hosting. If using GitHub Pages, set CNAME and configure Pages in repo settings.
+```
+src/pages/
+  ├── index.astro              # Homepage with engagement features
+  ├── articles/[slug].astro    # Dynamic article generation
+  └── quizzes/                 # Interactive quizzes
+```
+
+## Deployment Notes
+
+- Currently deployed at: beeffruit-com.vercel.app
+- Custom domain: beeffruit.com (to be configured)
+- See `.warp.md` for detailed deployment history
 
