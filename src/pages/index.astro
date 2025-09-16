@@ -58,14 +58,76 @@ const teamMembers = [
 <Base title="BeefFruit | Disrupting Digital Media Since 2019" description="The world's fastest-growing content platform. 500M+ articles. 24/7 production. Human-powered." canonicalUrl="https://beeffruit.com/" {structuredData}>
   <Fragment slot="header"><Header /></Fragment>
 
-  <!-- URGENT: Live Updates Banner (They think this is important) -->
-  <div class="bg-red-600 py-2 text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-yellow-400" style="background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.1) 10px, rgba(255,0,0,0.1) 20px);"></div>
-    <div class="relative ticker-content flex gap-8 text-white font-bold text-xs">
-      <span>🔴 LIVE</span>
-      {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
-      {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
+  <!-- Modern Stories Bar (Mobile-inspired engagement) -->
+  <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 py-3">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center gap-4 overflow-x-auto scrollbar-hide">
+        <div class="flex-shrink-0">
+          <div class="relative">
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 rounded-full animate-pulse">LIVE</div>
+            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-400 to-red-500 p-0.5">
+              <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                <span class="text-2xl">🔥</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">Breaking</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-green-400 to-blue-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">🥩</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">47.2M</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-400 to-pink-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">🍉</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">Viral</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-400 to-red-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">🚨</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">Alert</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-teal-400 to-blue-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">💥</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">New</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-400 to-orange-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">🎯</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">Quiz</p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-red-400 to-purple-500 p-0.5">
+            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+              <span class="text-2xl">🤯</span>
+            </div>
+          </div>
+          <p class="text-white text-xs font-bold mt-1 text-center">OMG</p>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Floating notification badge (appears after 2 seconds) -->
+  <div id="notification-badge" class="fixed top-20 right-4 bg-red-600 text-white px-4 py-2 rounded-full shadow-lg z-50 hidden animate-bounce">
+    <span class="font-bold text-sm">🔔 27 new articles while you were reading!</span>
   </div>
 
   <!-- Immediate engagement hook -->
@@ -243,19 +305,73 @@ const teamMembers = [
     </div>
   </section>
 
-  <!-- Live ticker -->
-  <section class="bg-black text-white py-3 overflow-hidden">
-    <div class="ticker-content-fast flex gap-8 text-sm font-bold">
-      <span>📢 NEW: Scientists Find Beef DNA in Bananas</span>
-      <span>💥 TRENDING: The Great Watermelon Uprising of 2025</span>
-      <span>🚨 ALERT: Your Salad Might Be Sentient</span>
-      <span>🔥 HOT: 73 Fruits That Don't Exist (Yet)</span>
-      <span>⚡ BREAKING: Local Man Becomes Mango</span>
-      <span>📢 NEW: Scientists Find Beef DNA in Bananas</span>
-      <span>💥 TRENDING: The Great Watermelon Uprising of 2025</span>
-      <span>🚨 ALERT: Your Salad Might Be Sentient</span>
+  <!-- Modern Engagement Section with live counters -->
+  <section class="bg-gradient-to-r from-gray-900 to-black text-white py-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center">
+          <p class="text-3xl font-black" id="live-readers">2,847</p>
+          <p class="text-sm opacity-75">Reading Now</p>
+          <div class="mt-1 h-1 bg-green-500 animate-pulse"></div>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black" id="articles-today">847</p>
+          <p class="text-sm opacity-75">Articles Today</p>
+          <div class="mt-1 h-1 bg-yellow-500"></div>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black" id="shares-counter">92.3K</p>
+          <p class="text-sm opacity-75">Shares/Hour</p>
+          <div class="mt-1 h-1 bg-blue-500"></div>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black" id="viral-score">97%</p>
+          <p class="text-sm opacity-75">Viral Probability</p>
+          <div class="mt-1 h-1 bg-red-500"></div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Floating "Someone just read" notifications -->
+  <div id="reader-notification" class="fixed bottom-20 left-4 bg-white border-2 border-gray-200 rounded-lg shadow-xl p-3 z-40 hidden">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">👤</span>
+      <div>
+        <p class="text-sm font-bold text-gray-800">Someone in <span id="reader-location">New York</span></p>
+        <p class="text-xs text-gray-600">Just read "<span id="reader-article">27 Fruits That Are Secretly Meat</span>"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky bottom bar (mobile-style engagement) -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 py-2 px-4 z-50 md:hidden">
+    <div class="flex justify-around items-center">
+      <button class="text-center">
+        <span class="text-2xl">🏠</span>
+        <p class="text-xs">Home</p>
+      </button>
+      <button class="text-center relative">
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">9</span>
+        <span class="text-2xl">🔥</span>
+        <p class="text-xs">Trending</p>
+      </button>
+      <button class="text-center">
+        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full flex items-center justify-center">
+          <span class="text-white text-2xl">+</span>
+        </div>
+      </button>
+      <button class="text-center">
+        <span class="text-2xl">🎮</span>
+        <p class="text-xs">Quiz</p>
+      </button>
+      <button class="text-center relative">
+        <span class="absolute -top-1 -right-1 bg-green-500 w-2 h-2 rounded-full animate-pulse"></span>
+        <span class="text-2xl">👤</span>
+        <p class="text-xs">You</p>
+      </button>
+    </div>
+  </div>
 
   <!-- Latest Articles (What they call "Premium Content") -->
   <section id="feed" class="py-12 bg-white">
@@ -360,17 +476,44 @@ const teamMembers = [
 </Base>
 
 <style>
-  .ticker-content {
-    animation: scroll 30s linear infinite;
+  /* Hide scrollbar for stories bar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
-  
-  .ticker-content-fast {
-    animation: scroll 15s linear infinite;
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+
+  /* Notification slide-in animation */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .notification-slide-in {
+    animation: slideInLeft 0.3s ease-out;
+  }
+
+  .badge-slide-in {
+    animation: slideInRight 0.3s ease-out;
   }
 
   /* Modern animations */
@@ -435,8 +578,103 @@ const teamMembers = [
 </style>
 
 <script>
-  // Real-time metrics tracking (they're obsessed with these numbers)
-  // Article counter - increments based on their claimed rate of 34.7/min
+  // AGGRESSIVE MODERN ENGAGEMENT SYSTEM
+  // The BeefFruit team tracks every micro-interaction and creates maximum FOMO
+  
+  // Show notification badge after 2 seconds
+  setTimeout(() => {
+    const badge = document.getElementById('notification-badge');
+    if (badge) {
+      badge.classList.remove('hidden');
+      badge.classList.add('badge-slide-in');
+      
+      // Hide after 5 seconds, then show again with different number
+      setTimeout(() => {
+        badge.classList.add('hidden');
+        setTimeout(() => {
+          badge.innerHTML = '<span class="font-bold text-sm">🔔 42 people are reading right now!</span>';
+          badge.classList.remove('hidden');
+        }, 8000);
+      }, 5000);
+    }
+  }, 2000);
+
+  // Live reader counter
+  setInterval(() => {
+    const readers = document.getElementById('live-readers');
+    if (readers) {
+      const current = parseInt(readers.textContent.replace(/,/g, ''));
+      const change = Math.floor(Math.random() * 10) - 3; // Random change between -3 and +7
+      const newVal = Math.max(2500, current + change); // Never go below 2500
+      readers.textContent = newVal.toLocaleString();
+    }
+  }, 3000);
+
+  // Articles today counter (increases every 90 seconds as they claim)
+  setInterval(() => {
+    const articles = document.getElementById('articles-today');
+    if (articles) {
+      const current = parseInt(articles.textContent.replace(/,/g, ''));
+      articles.textContent = (current + 1).toLocaleString();
+    }
+  }, 90000);
+
+  // Shares counter (increases rapidly)
+  setInterval(() => {
+    const shares = document.getElementById('shares-counter');
+    if (shares) {
+      const current = parseFloat(shares.textContent.replace(/[^0-9.]/g, ''));
+      const newVal = current + 0.1;
+      shares.textContent = newVal.toFixed(1) + 'K';
+    }
+  }, 5000);
+
+  // Viral probability fluctuates
+  setInterval(() => {
+    const viral = document.getElementById('viral-score');
+    if (viral) {
+      const current = parseInt(viral.textContent.replace(/%/, ''));
+      const change = Math.floor(Math.random() * 3) - 1;
+      const newVal = Math.min(99, Math.max(90, current + change));
+      viral.textContent = newVal + '%';
+    }
+  }, 4000);
+
+  // "Someone just read" notifications
+  const locations = ['New York', 'London', 'Tokyo', 'Paris', 'Sydney', 'Mumbai', 'Dubai', 'Singapore', 'Berlin', 'Toronto'];
+  const articles = [
+    '27 Fruits That Are Secretly Meat',
+    'Why Your Steak Dreams of Being a Watermelon',
+    'The Mango Conspiracy Nobody Talks About',
+    'I Ate Only Beef-Flavored Fruit for 30 Days',
+    'Scientists Discover Beef Has Feelings'
+  ];
+
+  function showReaderNotification() {
+    const notification = document.getElementById('reader-notification');
+    const locationSpan = document.getElementById('reader-location');
+    const articleSpan = document.getElementById('reader-article');
+    
+    if (notification && locationSpan && articleSpan) {
+      locationSpan.textContent = locations[Math.floor(Math.random() * locations.length)];
+      articleSpan.textContent = articles[Math.floor(Math.random() * articles.length)];
+      
+      notification.classList.remove('hidden');
+      notification.classList.add('notification-slide-in');
+      
+      setTimeout(() => {
+        notification.classList.add('hidden');
+      }, 4000);
+    }
+  }
+
+  // Show reader notifications randomly every 15-30 seconds
+  setTimeout(() => {
+    showReaderNotification();
+    setInterval(showReaderNotification, 15000 + Math.random() * 15000);
+  }, 5000);
+
+  // Article counter in the old location if it still exists
   setInterval(() => {
     const el = document.getElementById('article-counter');
     if (el) {
