@@ -20,99 +20,339 @@ const breakingNews = [
   "💥 URGENT: YOUR REFRIGERATOR MAY BE PLOTTING SOMETHING",
   "🌟 LEAKED: SECRET FRUIT RANKINGS CAUSE GLOBAL PANIC"
 ];
+
+const teamMembers = [
+  {
+    name: "Chad Grindmore",
+    role: "CEO & Chief Velocity Officer",
+    image: "🧑‍💼",
+    articles: "15,420",
+    sleep: "3hrs",
+    caffeine: "1.2L",
+    status: "GRINDING",
+    bio: "Writes 20 articles while you read this"
+  },
+  {
+    name: "Tyler Chen",
+    role: "CTO & Infrastructure",
+    image: "👨‍💻",
+    articles: "12,847",
+    sleep: "2hrs",
+    caffeine: "1.5L",
+    status: "OPTIMIZING",
+    bio: "Codes with one hand, writes with the other"
+  },
+  {
+    name: "Kayleigh Martinez",
+    role: "Chief Content Officer",
+    image: "👩‍💼",
+    articles: "18,923",
+    sleep: "0hrs",
+    caffeine: "2.1L",
+    status: "TRANSCENDING",
+    bio: "Achieved content enlightenment"
+  }
+];
 ---
 
-<Base title="BeefFruit — MAXIMUM INTERNET CHAOS" description="The most unhinged content farm on the web. We're not sorry." canonicalUrl="https://beeffruit.com/" {structuredData}>
+<Base title="BeefFruit | Disrupting Digital Media Since 2019" description="The world's fastest-growing content platform. 500M+ articles. 24/7 production. Human-powered." canonicalUrl="https://beeffruit.com/" {structuredData}>
   <Fragment slot="header"><Header /></Fragment>
 
-  <!-- Breaking News Ticker -->
-  <div class="animate-gradient overflow-hidden py-2">
-    <div class="ticker-content flex gap-8 text-black font-bold">
+  <!-- URGENT: Live Updates Banner (They think this is important) -->
+  <div class="bg-red-600 py-2 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-yellow-400" style="background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.1) 10px, rgba(255,0,0,0.1) 20px);"></div>
+    <div class="relative ticker-content flex gap-8 text-white font-bold text-xs">
+      <span>🔴 LIVE</span>
       {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
       {breakingNews.map(news => <span class="whitespace-nowrap">{news}</span>)}
     </div>
   </div>
 
-  <!-- Chaotic Hero -->
-  <section class="relative py-20 overflow-hidden">
-    <div class="absolute inset-0 animate-gradient opacity-20"></div>
-    <div class="relative text-center">
-      <div class="inline-block">
-        <h1 class="text-6xl md:text-8xl font-black glitch-text">
-          <span class="rainbow-text">BEEF</span><span class="text-white">vs</span><span class="rainbow-text">FRUIT</span>
-        </h1>
-        <div class="absolute -top-4 -right-4 text-4xl float-emoji">🥩</div>
-        <div class="absolute -bottom-4 -left-4 text-4xl float-emoji" style="animation-delay: 1s">🍉</div>
-      </div>
-      
-      <p class="mt-6 text-xl md:text-2xl font-bold text-brand-yellow glitch-text">
-        ⚠️ WARNING: EXTREME CONTENT AHEAD ⚠️
-      </p>
-      
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <button id="chaos-injector" class="neon-glow rounded-xl bg-brand-pink text-white font-black px-8 py-4 text-lg shake-hover">
-          🔥 INJECT CHAOS INTO MY VEINS
+  <!-- Immediate engagement hook -->
+  <section class="bg-yellow-50 py-4 px-4 border-b-4 border-yellow-400">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <span class="text-lg font-black">⚡ BREAKING:</span>
+        <button class="bg-red-500 text-white font-bold px-4 py-2 hover:bg-red-600 transition-colors">
+          🥩 TEAM BEEF: <span id="beef-score">2,847,291</span>
         </button>
-        <div class="text-3xl font-bold">
-          <span class="text-brand-green">👁</span>
-          <span class="text-white" id="viewer-count">69,420</span>
-          <span class="text-gray-400 text-sm">WATCHING NOW</span>
+        <span class="font-bold text-xl">VS</span>
+        <button class="bg-green-500 text-white font-bold px-4 py-2 hover:bg-green-600 transition-colors">
+          🍉 TEAM FRUIT: <span id="fruit-score">2,847,290</span>
+        </button>
+        <span class="text-sm text-gray-600">VOTE NOW!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main trending content grid -->
+  <section class="bg-white py-8 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Top story carousel they definitely would have -->
+      <div class="mb-8">
+        <div class="bg-red-600 text-white px-4 py-2 inline-block font-black text-sm mb-4">
+          🔥 TRENDING NOW
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="md:col-span-2">
+            <article class="border-2 border-gray-200 hover:border-yellow-400 transition-colors p-4 bg-white">
+              <span class="bg-red-500 text-white text-xs px-2 py-1 font-bold">BREAKING</span>
+              <h2 class="text-3xl font-black mt-2 mb-2">
+                <a href="/articles/2025-09-16-scientists-discover-beef-dreams-of-being-fruit" class="hover:text-red-600 transition-colors">
+                  Scientists Discover That Beef Dreams of Being Fruit
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4">In a groundbreaking study that's shaking the culinary world, researchers at the Institute of Food Psychology have made a discovery that challenges everything we know about meat consciousness...</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-500">3 minutes ago • 2,847,293 views</span>
+                <a href="/articles/2025-09-16-scientists-discover-beef-dreams-of-being-fruit" class="text-blue-600 font-bold hover:underline">READ MORE →</a>
+              </div>
+            </article>
+          </div>
+          <div class="space-y-4">
+            <a href="/articles/2025-08-27-27-fruits-that-are-secretly-meat" class="block border-2 border-gray-200 hover:border-yellow-400 transition-colors p-3 bg-white">
+              <span class="text-xs font-bold text-orange-600">🔥 THE VIRAL ONE</span>
+              <h3 class="font-bold mt-1">27 Fruits That Are Secretly Meat</h3>
+              <span class="text-xs text-gray-500">47.2M views • Still climbing</span>
+            </a>
+            <a href="/articles/2025-09-15-watermelon-started-revolution" class="block border-2 border-gray-200 hover:border-yellow-400 transition-colors p-3 bg-white">
+              <span class="text-xs font-bold text-purple-600">VIRAL</span>
+              <h3 class="font-bold mt-1">This Watermelon Started a Revolution</h3>
+              <span class="text-xs text-gray-500">923K shares</span>
+            </a>
+            <a href="/articles/2025-09-14-i-ate-only-beef-flavored-fruit-for-30-days" class="block border-2 border-gray-200 hover:border-yellow-400 transition-colors p-3 bg-white">
+              <span class="text-xs font-bold text-green-600">MUST READ</span>
+              <h3 class="font-bold mt-1">I Ate Only Beef-Flavored Fruit for 30 Days</h3>
+              <span class="text-xs text-gray-500">1.8M views • Disturbing</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-        <div class="text-center">
-          <div class="text-4xl font-black rainbow-text">24/7</div>
-          <div class="text-sm text-gray-400">CONTENT GENERATION</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-black rainbow-text">∞</div>
-          <div class="text-sm text-gray-400">SCROLL DEPTH</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-black rainbow-text">0%</div>
-          <div class="text-sm text-gray-400">MAKES SENSE</div>
+      <!-- Quick engagement widget -->
+      <div class="bg-gradient-to-r from-red-100 to-green-100 p-6 rounded-lg mb-8">
+        <h2 class="text-2xl font-black text-center mb-4">🤔 QUICK POLL: Which Would Win?</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <button class="bg-white p-4 border-2 border-gray-300 hover:border-red-500 hover:bg-red-50 transition-all">
+            <span class="text-3xl">🥩</span>
+            <p class="font-bold">100 Steaks</p>
+          </button>
+          <button class="bg-white p-4 border-2 border-gray-300 hover:border-green-500 hover:bg-green-50 transition-all">
+            <span class="text-3xl">🍎</span>
+            <p class="font-bold">1 Giant Apple</p>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Countdown Timer to Nothing -->
-  <section class="py-8 text-center bg-black/50">
-    <h2 class="text-2xl font-bold text-brand-red">⏰ SOMETHING HAPPENS IN:</h2>
-    <div class="text-5xl font-black mt-4" id="countdown">00:47:23</div>
-    <p class="text-sm text-gray-500 mt-2">We don't know what</p>
-  </section>
+  <!-- More content sections -->
+  <section class="bg-gray-50 py-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Most viral -->
+        <div>
+          <h2 class="bg-black text-white px-3 py-2 font-black inline-block mb-4">🔥 MOST VIRAL</h2>
+          <div class="space-y-3">
+            <a href="/articles/2025-09-12-why-tomatoes-are-plotting-against-us" class="block bg-white p-3 border-l-4 border-red-500 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <h3 class="font-bold text-sm">Why Tomatoes Are Plotting Against Us</h3>
+                <span class="text-xs text-red-600 font-bold">2.3M</span>
+              </div>
+            </a>
+            <a href="/articles/2025-09-10-beef-that-tastes-like-memories" class="block bg-white p-3 border-l-4 border-orange-500 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <h3 class="font-bold text-sm">Beef That Tastes Like Memories</h3>
+                <span class="text-xs text-red-600 font-bold">1.8M</span>
+              </div>
+            </a>
+            <a href="/articles/2025-09-08-i-found-a-sentient-watermelon" class="block bg-white p-3 border-l-4 border-yellow-500 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <h3 class="font-bold text-sm">I Found a Sentient Watermelon</h3>
+                <span class="text-xs text-red-600 font-bold">1.2M</span>
+              </div>
+            </a>
+            <a href="/articles/2025-09-05-37-signs-your-fruit-is-judging-you" class="block bg-white p-3 border-l-4 border-green-500 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <h3 class="font-bold text-sm">37 Signs Your Fruit is Judging You</h3>
+                <span class="text-xs text-red-600 font-bold">982K</span>
+              </div>
+            </a>
+            <a href="/articles/2025-09-01-the-mango-that-destroyed-my-life" class="block bg-white p-3 border-l-4 border-blue-500 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start justify-between">
+                <h3 class="font-bold text-sm">The Mango That Destroyed My Life</h3>
+                <span class="text-xs text-red-600 font-bold">847K</span>
+              </div>
+            </a>
+          </div>
+        </div>
 
-  <section id="feed" class="py-8">
-    <InfiniteList title="🔥 HOT GARBAGE TRENDING NOW 🔥" />
-  </section>
+        <!-- Categories -->
+        <div>
+          <h2 class="bg-yellow-400 text-black px-3 py-2 font-black inline-block mb-4">📂 CATEGORIES</h2>
+          <div class="bg-white p-4">
+            <div class="space-y-2">
+              <a href="#" class="block p-2 hover:bg-red-50 transition-colors">
+                <span class="text-xl mr-2">🥩</span>
+                <span class="font-bold">BEEF FACTS</span>
+                <span class="text-gray-500 text-sm ml-2">(28,474)</span>
+              </a>
+              <a href="#" class="block p-2 hover:bg-green-50 transition-colors">
+                <span class="text-xl mr-2">🍓</span>
+                <span class="font-bold">FRUIT MYSTERIES</span>
+                <span class="text-gray-500 text-sm ml-2">(31,892)</span>
+              </a>
+              <a href="#" class="block p-2 hover:bg-blue-50 transition-colors">
+                <span class="text-xl mr-2">⚔️</span>
+                <span class="font-bold">VERSUS BATTLES</span>
+                <span class="text-gray-500 text-sm ml-2">(12,847)</span>
+              </a>
+              <a href="#" class="block p-2 hover:bg-purple-50 transition-colors">
+                <span class="text-xl mr-2">🔬</span>
+                <span class="font-bold">FOOD SCIENCE</span>
+                <span class="text-gray-500 text-sm ml-2">(9,283)</span>
+              </a>
+              <a href="#" class="block p-2 hover:bg-yellow-50 transition-colors">
+                <span class="text-xl mr-2">🎭</span>
+                <span class="font-bold">CONSPIRACY</span>
+                <span class="text-gray-500 text-sm ml-2">(47,293)</span>
+              </a>
+              <a href="#" class="block p-2 hover:bg-pink-50 transition-colors">
+                <span class="text-xl mr-2">📝</span>
+                <span class="font-bold">LISTICLES</span>
+                <span class="text-gray-500 text-sm ml-2">(182,847)</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
-  <!-- Random Fact Generator -->
-  <section class="py-12 text-center">
-    <div class="inline-block p-8 rounded-2xl bg-gradient-to-br from-brand-blue/20 to-brand-pink/20 border-2 border-white/20">
-      <h3 class="text-xl font-bold mb-4">💡 RANDOM FACT</h3>
-      <p class="text-2xl font-bold" id="random-fact">Bananas are berries but strawberries aren't</p>
-      <button class="mt-4 text-sm text-brand-yellow hover:text-white">↻ ANOTHER ONE</button>
+        <!-- Quiz widget -->
+        <div>
+          <h2 class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-2 font-black inline-block mb-4">🎮 DAILY QUIZ</h2>
+          <div class="bg-gradient-to-br from-purple-100 to-pink-100 p-6 text-center">
+            <p class="text-4xl mb-4">🤯</p>
+            <h3 class="font-black text-xl mb-4">Which Fruit Are You?</h3>
+            <p class="text-sm text-gray-700 mb-4">Take our 47-question personality test to discover your inner produce</p>
+            <a href="/quizzes/which-fruit-are-you" class="block bg-purple-600 text-white font-bold px-6 py-3 hover:bg-purple-700 transition-colors text-center">
+              START QUIZ →
+            </a>
+            <p class="text-xs text-gray-600 mt-2">2.8M people have taken this quiz</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="quiz" class="py-16">
-    <Quiz />
+  <!-- Live ticker -->
+  <section class="bg-black text-white py-3 overflow-hidden">
+    <div class="ticker-content-fast flex gap-8 text-sm font-bold">
+      <span>📢 NEW: Scientists Find Beef DNA in Bananas</span>
+      <span>💥 TRENDING: The Great Watermelon Uprising of 2025</span>
+      <span>🚨 ALERT: Your Salad Might Be Sentient</span>
+      <span>🔥 HOT: 73 Fruits That Don't Exist (Yet)</span>
+      <span>⚡ BREAKING: Local Man Becomes Mango</span>
+      <span>📢 NEW: Scientists Find Beef DNA in Bananas</span>
+      <span>💥 TRENDING: The Great Watermelon Uprising of 2025</span>
+      <span>🚨 ALERT: Your Salad Might Be Sentient</span>
+    </div>
   </section>
 
-  <ChaosWheel />
+  <!-- Latest Articles (What they call "Premium Content") -->
+  <section id="feed" class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold mb-2">Trending Now</h2>
+        <p class="text-gray-600">Our AI-free, 100% human-generated content. Updated every 90 seconds.</p>
+        <div class="mt-4 flex gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 px-3 py-1 text-sm font-bold">#BEEF</span>
+          <span class="bg-green-100 text-green-700 px-3 py-1 text-sm font-bold">#FRUIT</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 text-sm font-bold">#CONTROVERSY</span>
+          <span class="bg-yellow-100 text-yellow-700 px-3 py-1 text-sm font-bold">#VIRAL</span>
+          <span class="bg-purple-100 text-purple-700 px-3 py-1 text-sm font-bold">#MUSTREAD</span>
+        </div>
+      </div>
+      <InfiniteList />
+    </div>
+  </section>
 
-  <!-- Final call to chaos -->
-  <section class="py-20 text-center">
-    <h2 class="text-4xl font-black mb-4">
-      <span class="glitch-text">YOU'VE MADE IT THIS FAR</span>
-    </h2>
-    <p class="text-xl text-brand-yellow mb-8">Your fate is sealed. The algorithms know.</p>
-    <div class="inline-block p-8 rounded-2xl neon-glow">
-      <p class="text-6xl mb-4">🎭</p>
-      <p class="text-2xl font-bold rainbow-text">BEEF OR FRUIT?</p>
-      <p class="text-sm text-gray-400 mt-2">The answer was inside you all along</p>
+  <!-- Their "viral" fact generator they spent too much time on -->
+  <section class="py-12 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white p-8 shadow-lg border-4 border-yellow-400">
+        <h3 class="text-2xl font-bold text-center mb-4">🤯 DID YOU KNOW?</h3>
+        <p class="text-xl text-center mb-6" id="random-fact">Bananas are berries but strawberries aren't</p>
+        <div class="text-center">
+          <button class="bg-yellow-400 text-black font-bold px-6 py-3 hover:bg-yellow-500 transition-colors">
+            BLOW MY MIND AGAIN ↻
+          </button>
+        </div>
+        <p class="text-xs text-gray-500 text-center mt-4">
+          Facts verified by our 24/7 research team (Chad verified this at 3 AM)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Quiz (They think this drives engagement) -->
+  <section id="quiz" class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold">Daily Challenge</h2>
+        <p class="text-gray-600">Test your Beef vs Fruit knowledge! Winners get featured.</p>
+      </div>
+      <Quiz />
+    </div>
+  </section>
+
+  <!-- The Chaos Wheel (Chad's idea - everyone pretends to like it) -->
+  <section class="py-12 bg-black text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-yellow-400">THE CHAOS WHEEL™</h2>
+      <p class="mb-8">Spin to unlock exclusive content! (Patent pending)</p>
+      <ChaosWheel />
+      <p class="text-xs text-gray-400 mt-4">
+        *No purchase necessary. Void where prohibited. The Chaos Wheel is for entertainment purposes only.
+      </p>
+    </div>
+  </section>
+
+  <!-- Newsletter signup (essential for content farms) -->
+  <section class="py-12 bg-yellow-400">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-black mb-2">📧 NEVER MISS A BEEF OR FRUIT</h2>
+      <p class="text-lg mb-6">Join 1.2M subscribers. New content every 90 seconds.</p>
+      <div class="max-w-md mx-auto flex">
+        <input type="email" placeholder="your@email.com" class="flex-1 p-3 text-black border-2 border-black" />
+        <button class="bg-black text-white px-6 py-3 font-bold hover:bg-gray-800">
+          SUBSCRIBE
+        </button>
+      </div>
+      <p class="text-xs mt-2">*We'll email you constantly. Deal with it.</p>
+    </div>
+  </section>
+
+  <!-- Final engagement -->
+  <section class="py-16 bg-gradient-to-r from-red-500 to-green-500 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-5xl font-black mb-8">THE ETERNAL BATTLE</h2>
+      <div class="flex justify-center gap-8 mb-8">
+        <div class="text-center">
+          <p class="text-6xl mb-2">🥩</p>
+          <p class="text-3xl font-black" id="final-beef-count">2,847,291</p>
+          <button class="mt-2 bg-white text-red-600 font-bold px-4 py-2 hover:bg-red-50">
+            VOTE BEEF
+          </button>
+        </div>
+        <div class="text-3xl font-black self-center">VS</div>
+        <div class="text-center">
+          <p class="text-6xl mb-2">🍉</p>
+          <p class="text-3xl font-black" id="final-fruit-count">2,847,290</p>
+          <button class="mt-2 bg-white text-green-600 font-bold px-4 py-2 hover:bg-green-50">
+            VOTE FRUIT
+          </button>
+        </div>
+      </div>
+      <p class="text-sm opacity-75">This battle has been raging since 2019</p>
     </div>
   </section>
 
@@ -124,38 +364,122 @@ const breakingNews = [
     animation: scroll 30s linear infinite;
   }
   
+  .ticker-content-fast {
+    animation: scroll 15s linear infinite;
+  }
+  
   @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+
+  /* Modern animations */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
 </style>
 
 <script>
-  // Fake viewer count that changes
+  // Real-time metrics tracking (they're obsessed with these numbers)
+  // Article counter - increments based on their claimed rate of 34.7/min
+  setInterval(() => {
+    const el = document.getElementById('article-counter');
+    if (el) {
+      const current = parseInt(el.textContent.replace(/,/g, ''));
+      el.textContent = (current + 1).toLocaleString();
+    }
+  }, 1730); // ~34.7 articles per minute
+
+  // Viewer count - fluctuates realistically
   setInterval(() => {
     const el = document.getElementById('viewer-count');
     if (el) {
       const current = parseInt(el.textContent.replace(/,/g, ''));
-      const change = Math.floor(Math.random() * 1000) - 400;
-      el.textContent = (current + change).toLocaleString();
+      const change = Math.floor(Math.random() * 100) - 40; // More realistic changes
+      const newCount = Math.max(10000, current + change); // Never goes below 10k (they'd be embarrassed)
+      el.textContent = newCount.toLocaleString();
     }
-  }, 3000);
+  }, 2000);
 
-  // Countdown timer to nothing
+  // Beef vs Fruit scores - the main metric they care about
   setInterval(() => {
-    const el = document.getElementById('countdown');
-    if (el) {
-      const parts = el.textContent.split(':').map(Number);
-      let [h, m, s] = parts;
-      s--;
-      if (s < 0) { s = 59; m--; }
-      if (m < 0) { m = 59; h--; }
-      if (h < 0) { h = 23; }
-      el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    }
-  }, 1000);
+    // Update all score displays
+    const beefEls = [document.getElementById('beef-score'), document.getElementById('final-beef-count')];
+    const fruitEls = [document.getElementById('fruit-score'), document.getElementById('final-fruit-count')];
+    
+    beefEls.forEach(el => {
+      if (el) {
+        const current = parseInt(el.textContent.replace(/,/g, ''));
+        const change = Math.floor(Math.random() * 10) + 1;
+        el.textContent = (current + change).toLocaleString();
+      }
+    });
+    
+    fruitEls.forEach(el => {
+      if (el) {
+        const current = parseInt(el.textContent.replace(/,/g, ''));
+        const change = Math.floor(Math.random() * 10) + 1;
+        el.textContent = (current + change).toLocaleString();
+      }
+    });
+  }, 2000);
 
-  // Random fact rotation
+  // Random fact rotation - they curated these "mind-blowing" facts
   const facts = [
     "Bananas are berries but strawberries aren't",
     "A group of flamingos is called a 'flamboyance'",
@@ -163,165 +487,65 @@ const breakingNews = [
     "Octopi have three hearts and blue blood",
     "You can't hum while holding your nose",
     "Wombat poop is cube-shaped",
-    "The moon is moving away from Earth",
-    "Beef was illegal in Japan for 1200 years"
+    "The moon is moving away from Earth at 1.5 inches per year",
+    "Beef was illegal in Japan for 1200 years",
+    "A strawberry has more vitamin C than an orange",
+    "Apples float because they're 25% air",
+    "Cranberries bounce when they're ripe",
+    "The most stolen food in the world is cheese",
+    "Ketchup was once sold as medicine",
+    "Carrots were originally purple",
+    "Chad has written over 100,000 articles about beef",
+    "Our team drinks 847 gallons of coffee daily"
   ];
   
-  document.querySelector('button[class*="text-brand-yellow"]')?.addEventListener('click', () => {
-    const el = document.getElementById('random-fact');
-    if (el) {
-      el.textContent = facts[Math.floor(Math.random() * facts.length)];
-      el.classList.add('shake-hover');
-      setTimeout(() => el.classList.remove('shake-hover'), 500);
+  // They track how many times the button is clicked
+  let factClicks = 0;
+  document.querySelector('button:has-text("BLOW MY MIND")')?.addEventListener('click', (e) => {
+    if (e.target.textContent.includes('BLOW MY MIND')) {
+      const el = document.getElementById('random-fact');
+      if (el) {
+        factClicks++;
+        el.textContent = facts[Math.floor(Math.random() * facts.length)];
+        // They'd definitely track engagement
+        if (factClicks % 10 === 0) {
+          console.log(`User engaged with facts ${factClicks} times! HIGH ENGAGEMENT ALERT!`);
+        }
+      }
     }
   });
 
-  // CHAOS INJECTION SYSTEM
-  let chaosLevel = 0;
-  const chaosBtn = document.getElementById('chaos-injector');
-  const chaosStates = [
-    { text: '🔥 INJECT CHAOS INTO MY VEINS', class: 'bg-brand-pink' },
-    { text: '💉 INJECTING... PLEASE WAIT', class: 'bg-brand-yellow animate-pulse' },
-    { text: '🌈 CHAOS LEVEL 1: ACTIVATED', class: 'bg-gradient-to-r from-brand-pink to-brand-yellow' },
-    { text: '⚡ CHAOS LEVEL 2: ASCENDING', class: 'bg-gradient-to-r from-brand-green to-brand-blue animate-gradient' },
-    { text: '🔮 CHAOS LEVEL 3: TRANSCENDING', class: 'bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse' },
-    { text: '👁️ CHAOS LEVEL 4: OMNISCIENT', class: 'animate-gradient' },
-    { text: '🌌 MAXIMUM CHAOS ACHIEVED', class: 'bg-black border-2 border-white animate-pulse' },
-    { text: '💀 YOU ARE NOW BEEF', class: 'bg-red-900 animate-pulse' },
-    { text: '🍉 YOU ARE NOW FRUIT', class: 'bg-green-600 animate-pulse' },
-    { text: '∞ YOU ARE EVERYTHING', class: 'rainbow-text text-4xl' }
-  ];
-
-  const chaosEffects = [
-    () => {}, // Level 0: Nothing
-    () => { // Level 1: Mild shaking
-      document.body.classList.add('animate-pulse');
-      setTimeout(() => document.body.classList.remove('animate-pulse'), 2000);
-    },
-    () => { // Level 2: Color inversion
-      document.documentElement.style.filter = 'hue-rotate(90deg)';
-      setTimeout(() => document.documentElement.style.filter = '', 3000);
-    },
-    () => { // Level 3: Everything floats
-      document.querySelectorAll('section, article, div').forEach((el, i) => {
-        setTimeout(() => {
-          el.style.transition = 'transform 2s';
-          el.style.transform = `translateY(-${Math.random() * 20}px) rotate(${Math.random() * 6 - 3}deg)`;
-          setTimeout(() => el.style.transform = '', 2000);
-        }, i * 50);
-      });
-    },
-    () => { // Level 4: Glitch text everywhere
-      document.querySelectorAll('h1, h2, h3, p').forEach(el => {
-        el.classList.add('glitch-text');
-        setTimeout(() => el.classList.remove('glitch-text'), 3000);
-      });
-    },
-    () => { // Level 5: Rainbow everything
-      document.querySelectorAll('*').forEach((el, i) => {
-        if (i % 3 === 0) el.classList.add('rainbow-text');
-        setTimeout(() => el.classList.remove('rainbow-text'), 4000);
-      });
-    },
-    () => { // Level 6: Spin the page
-      document.body.style.transition = 'transform 3s';
-      document.body.style.transform = 'rotate(360deg)';
-      setTimeout(() => {
-        document.body.style.transform = '';
-      }, 3000);
-    },
-    () => { // Level 7: Beef mode
-      document.body.style.backgroundColor = '#8B0000';
-      document.body.innerHTML += '<div id="beef-rain" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;"></div>';
-      const rain = document.getElementById('beef-rain');
-      for (let i = 0; i < 50; i++) {
-        const beef = document.createElement('div');
-        beef.textContent = '🥩';
-        beef.style.position = 'absolute';
-        beef.style.left = Math.random() * 100 + '%';
-        beef.style.fontSize = Math.random() * 30 + 20 + 'px';
-        beef.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-        rain?.appendChild(beef);
-      }
-      setTimeout(() => {
-        rain?.remove();
-        document.body.style.backgroundColor = '';
-      }, 5000);
-    },
-    () => { // Level 8: Fruit mode
-      const fruits = ['🍎', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🫐', '🍒', '🍑', '🥭', '🍍', '🥥', '🥝'];
-      document.querySelectorAll('*').forEach(el => {
-        if (el.textContent && Math.random() > 0.7) {
-          el.dataset.original = el.textContent;
-          el.textContent = fruits[Math.floor(Math.random() * fruits.length)];
-          setTimeout(() => {
-            if (el.dataset.original) el.textContent = el.dataset.original;
-          }, 3000);
+  // Fix fact button selector
+  document.querySelectorAll('button').forEach(btn => {
+    if (btn.textContent.includes('BLOW MY MIND')) {
+      btn.addEventListener('click', () => {
+        const el = document.getElementById('random-fact');
+        if (el) {
+          factClicks++;
+          el.textContent = facts[Math.floor(Math.random() * facts.length)];
+          // They'd definitely track engagement
+          if (factClicks % 10 === 0) {
+            console.log(`User engaged with facts ${factClicks} times! HIGH ENGAGEMENT ALERT!`);
+          }
         }
       });
-    },
-    () => { // Level 9: EVERYTHING
-      document.body.style.animation = 'spin 1s, gradient 2s, pulse 0.5s';
-      document.documentElement.style.filter = 'contrast(200%) brightness(150%) hue-rotate(180deg)';
-      const alert = document.createElement('div');
-      alert.innerHTML = '<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:5rem;z-index:99999;text-shadow:0 0 50px white;animation:pulse 0.5s infinite;">YOU WIN</div>';
-      document.body.appendChild(alert);
-      setTimeout(() => {
-        alert.remove();
-        document.body.style.animation = '';
-        document.documentElement.style.filter = '';
-        chaosLevel = 0;
-        updateChaosButton();
-      }, 5000);
-    }
-  ];
-
-  function updateChaosButton() {
-    if (chaosBtn) {
-      const state = chaosStates[Math.min(chaosLevel, chaosStates.length - 1)];
-      chaosBtn.textContent = state.text;
-      chaosBtn.className = `neon-glow rounded-xl text-white font-black px-8 py-4 text-lg shake-hover ${state.class}`;
-    }
-  }
-
-  chaosBtn?.addEventListener('click', () => {
-    chaosLevel++;
-    updateChaosButton();
-    
-    if (chaosLevel < chaosEffects.length) {
-      chaosEffects[chaosLevel]();
-    }
-    
-    // Add screen shake on every click
-    document.body.style.animation = 'shake 0.5s';
-    setTimeout(() => document.body.style.animation = '', 500);
-    
-    // Random chaos messages
-    const messages = [
-      'CHAOS COURSING THROUGH YOUR VEINS',
-      'REALITY IS OPTIONAL',
-      'BEEF AND FRUIT ARE ONE',
-      'THE SIMULATION APPROVES',
-      'ERROR: TOO MUCH CHAOS',
-      'CONGRATULATIONS',
-      'WHY DID YOU DO THIS',
-      'THERE IS NO GOING BACK'
-    ];
-    
-    if (Math.random() > 0.5) {
-      const msg = document.createElement('div');
-      msg.textContent = messages[Math.floor(Math.random() * messages.length)];
-      msg.style.cssText = `position:fixed;top:${Math.random() * 80 + 10}%;left:50%;transform:translateX(-50%);z-index:9999;font-size:2rem;font-weight:bold;color:white;text-shadow:0 0 20px black;animation:float 3s ease-out;pointer-events:none;`;
-      document.body.appendChild(msg);
-      setTimeout(() => msg.remove(), 3000);
     }
   });
-</script>
 
-<style>
-  @keyframes fall {
-    from { top: -100px; transform: rotate(0deg); }
-    to { top: 100vh; transform: rotate(360deg); }
-  }
-</style>
+  // Auto-refresh notification (they'd want people to know about new content)
+  let lastRefreshReminder = Date.now();
+  setInterval(() => {
+    if (Date.now() - lastRefreshReminder > 300000) { // Every 5 minutes
+      lastRefreshReminder = Date.now();
+      const reminder = document.createElement('div');
+      reminder.className = 'fixed bottom-4 right-4 bg-yellow-400 text-black p-4 font-bold shadow-lg z-50';
+      reminder.innerHTML = `
+        <p class="mb-2">📢 127 new articles since you loaded this page!</p>
+        <button class="bg-black text-white px-4 py-2" onclick="location.reload()">REFRESH NOW</button>
+        <button class="text-xs ml-2" onclick="this.parentElement.remove()">Dismiss</button>
+      `;
+      document.body.appendChild(reminder);
+    }
+  }, 60000);
+</script>
 

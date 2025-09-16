@@ -2,9 +2,8 @@
 const title = Astro.props?.title ?? 'Trending Weirdness';
 ---
 <section class="py-8">
-  <h2 class="text-2xl md:text-3xl font-bold mb-4">{title}</h2>
-  <div id="bf-feed" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4"></div>
-  <button id="bf-more" class="mt-6 w-full rounded-lg bg-brand-pink/20 text-brand-pink hover:bg-brand-pink/30 py-3 font-semibold">More oddities</button>
+  <div id="bf-feed" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+  <button id="bf-more" class="mt-6 w-full bg-yellow-400 text-black hover:bg-yellow-500 py-3 font-bold uppercase tracking-wide transition-colors">Load More Content</button>
 </section>
 
 <script>
@@ -76,17 +75,17 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       // Review format
       () => ({
         title: item.title,
-        extra: `<div class="mt-2 text-xs opacity-80">${getRandomElement(testimonials)}</div>`
+        extra: `<div class="mt-2 text-xs text-gray-600">${getRandomElement(testimonials)}</div>`
       }),
       // Warning format
       () => ({
         title: item.title.toUpperCase(),
-        extra: `<div class="mt-2 text-xs text-yellow-400">${getRandomElement(warnings)}</div>`
+        extra: `<div class="mt-2 text-xs text-orange-600 font-semibold">${getRandomElement(warnings)}</div>`
       }),
       // Price drop format
       () => ({
         title: item.title,
-        extra: `<div class="mt-2 text-sm font-bold text-brand-green">${getRandomElement(prices)}</div>`
+        extra: `<div class="mt-2 text-sm font-bold text-green-600">${getRandomElement(prices)}</div>`
       }),
       // Question format
       () => ({
@@ -101,12 +100,12 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       // List format
       () => ({
         title: `${Math.floor(Math.random() * 50 + 5)} Reasons Why ${item.title}`,
-        extra: `<div class="text-xs mt-1">#${Math.floor(Math.random() * 20 + 1)} will make you cry</div>`
+        extra: `<div class="text-xs mt-1 text-gray-600">#${Math.floor(Math.random() * 20 + 1)} will make you cry</div>`
       }),
       // Timeline format
       () => ({
         title: item.title,
-        extra: `<div class="text-xs mt-2 opacity-60">Posted ${Math.floor(Math.random() * 59 + 1)} ${getRandomElement(['seconds', 'minutes', 'hours', 'days', 'years', 'centuries'])} ago</div>`
+        extra: `<div class="text-xs mt-2 text-gray-500">Posted ${Math.floor(Math.random() * 59 + 1)} ${getRandomElement(['seconds', 'minutes', 'hours', 'days', 'years', 'centuries'])} ago</div>`
       }),
       // BREAKING NEWS format
       () => ({
@@ -116,7 +115,7 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       // Recipe format
       () => ({
         title: `RECIPE: ${item.title}`,
-        extra: `<div class="text-xs mt-1">Prep: ${Math.random() * 100}min | Serves: ${Math.random() > 0.5 ? 'Nobody' : Math.floor(Math.random() * 1000)}</div>`
+        extra: `<div class="text-xs mt-1 text-gray-600">Prep: ${Math.random() * 100}min | Serves: ${Math.random() > 0.5 ? 'Nobody' : Math.floor(Math.random() * 1000)}</div>`
       })
     ];
 
@@ -162,8 +161,8 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       const content = generateChaosContent(item);
       const cardType = generateCardType();
       
-      // Clean, consistent styling
-      card.className = `group block break-inside-avoid mb-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200 ${cardType.height}`;
+      // Clean, consistent styling for light theme
+      card.className = `group block p-4 bg-white border-2 border-gray-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-200 ${cardType.height}`;
       
       if (item.url) card.setAttribute('href', item.url);
       
@@ -173,12 +172,12 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       switch(cardType.type) {
         case 'quote':
           cardHTML = `
-            <blockquote class="border-l-4 border-brand-pink pl-4">
-              <p class="text-lg italic mb-2">"${content.title}"</p>
-              <cite class="text-sm opacity-60">- ${getRandomElement(['Ancient Wisdom', 'Internet Sage', 'My Uncle', 'Source: Trust Me', 'Anonymous Fruit'])}</cite>
+            <blockquote class="border-l-4 border-red-500 pl-4">
+              <p class="text-lg italic mb-2 text-gray-800">"${content.title}"</p>
+              <cite class="text-sm text-gray-600">- ${getRandomElement(['Ancient Wisdom', 'Internet Sage', 'My Uncle', 'Source: Trust Me', 'Anonymous Fruit'])}</cite>
             </blockquote>
             ${content.extra}
-            ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">EXPLORE →</div>' : ''}
+            ${item.url ? '<div class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-3">EXPLORE →</div>' : ''}
           `;
           break;
           
@@ -186,21 +185,21 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
           const percentage = Math.floor(Math.random() * 100);
           cardHTML = `
             <div class="text-center">
-              <div class="text-4xl font-black text-brand-yellow mb-2">${percentage}%</div>
-              <p class="text-sm">${content.title}</p>
-              <div class="text-xs mt-2 opacity-60">Sample size: ${Math.floor(Math.random() * 10) + 1} ${getRandomElement(['people', 'fruits', 'beefs', 'vibes', 'thoughts'])}</div>
-              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">SEE DATA →</div>' : ''}
+              <div class="text-4xl font-black text-yellow-500 mb-2">${percentage}%</div>
+              <p class="text-sm text-gray-800">${content.title}</p>
+              <div class="text-xs mt-2 text-gray-600">Sample size: ${Math.floor(Math.random() * 10) + 1} ${getRandomElement(['people', 'fruits', 'beefs', 'vibes', 'thoughts'])}</div>
+              ${item.url ? '<div class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-3">SEE DATA →</div>' : ''}
             </div>
           `;
           break;
           
         case 'warning':
           cardHTML = `
-            <div class="bg-red-900/20 border border-red-500/30 rounded p-3">
-              <div class="text-red-400 font-bold mb-1">⚠️ ALERT ⚠️</div>
-              <p class="text-sm">${content.title}</p>
+            <div class="bg-red-50 border border-red-300 rounded p-3">
+              <div class="text-red-600 font-bold mb-1">⚠️ ALERT ⚠️</div>
+              <p class="text-sm text-gray-800">${content.title}</p>
               ${content.extra}
-              ${item.url ? '<div class="text-red-400 text-sm opacity-0 group-hover:opacity-100 transition mt-2">LEARN MORE →</div>' : ''}
+              ${item.url ? '<div class="text-red-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-2">LEARN MORE →</div>' : ''}
             </div>
           `;
           break;
@@ -208,13 +207,13 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
         case 'recipe':
           cardHTML = `
             <div>
-              <div class="text-xs text-brand-green mb-1">RECIPE</div>
-              <h3 class="font-bold mb-2">${content.title}</h3>
-              <div class="text-sm opacity-80">
+              <div class="text-xs text-green-600 font-bold mb-1">RECIPE</div>
+              <h3 class="font-bold text-gray-900 mb-2">${content.title}</h3>
+              <div class="text-sm text-gray-700">
                 <div>Ingredients: ${getRandomElement(['Chaos', 'Hope', 'Beef', 'Fruit', 'Vibes', 'Energy'])} + ${getRandomElement(['Dreams', 'Nightmares', 'Salt', 'Pepper', 'Love', 'Rage'])}</div>
                 <div class="mt-1">Instructions: ${getRandomElement(['Mix until confused', 'Shake vigorously', 'Contemplate existence', 'Add heat', 'Serve immediately', 'Abandon all hope'])}</div>
               </div>
-              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-3">GET RECIPE →</div>' : ''}
+              ${item.url ? '<div class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-3">GET RECIPE →</div>' : ''}
             </div>
           `;
           break;
@@ -223,22 +222,22 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
           const stars = Math.floor(Math.random() * 5) + 1;
           cardHTML = `
             <div>
-              <div class="text-brand-yellow mb-1">${'⭐'.repeat(stars)}${'☆'.repeat(5-stars)}</div>
-              <h3 class="font-bold mb-1">${content.title}</h3>
-              <p class="text-sm opacity-80 mb-2">${item.blurb}</p>
+              <div class="text-yellow-500 mb-1">${'⭐'.repeat(stars)}${'☆'.repeat(5-stars)}</div>
+              <h3 class="font-bold text-gray-900 mb-1">${content.title}</h3>
+              <p class="text-sm text-gray-700 mb-2">${item.blurb}</p>
               ${content.extra}
-              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-2">READ REVIEW →</div>' : ''}
+              ${item.url ? '<div class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-2">READ REVIEW →</div>' : ''}
             </div>
           `;
           break;
           
         case 'fact':
           cardHTML = `
-            <div class="bg-gradient-to-br from-brand-blue/20 to-brand-green/20 rounded p-3">
-              <div class="text-xs font-bold text-brand-green mb-1">🧠 FUN FACT</div>
-              <p class="text-sm">${content.title}</p>
-              <div class="text-xs mt-2 opacity-60">Source: ${getRandomElement(['Wikipedia', 'My dreams', 'Ancient scrolls', 'The void', 'Trust me bro'])}</div>
-              ${item.url ? '<div class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition mt-2">VERIFY →</div>' : ''}
+            <div class="bg-blue-50 rounded p-3">
+              <div class="text-xs font-bold text-blue-600 mb-1">🧠 FUN FACT</div>
+              <p class="text-sm text-gray-800">${content.title}</p>
+              <div class="text-xs mt-2 text-gray-600">Source: ${getRandomElement(['Wikipedia', 'My dreams', 'Ancient scrolls', 'The void', 'Trust me bro'])}</div>
+              ${item.url ? '<div class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition mt-2">VERIFY →</div>' : ''}
             </div>
           `;
           break;
@@ -255,13 +254,13 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
           
           cardHTML = `
             <div>
-              <h3 class="font-bold text-lg mb-2">${content.title}</h3>
-              ${showBlurb ? `<p class="text-sm text-gray-300 mb-3">${item.blurb}</p>` : ''}
+              <h3 class="font-bold text-lg mb-2 text-gray-900">${content.title}</h3>
+              ${showBlurb ? `<p class="text-sm text-gray-600 mb-3">${item.blurb}</p>` : ''}
               ${content.extra}
               ${(showEmoji && displayEmoji) || item.url ? `
                 <div class="flex items-center justify-between mt-3">
                   ${(showEmoji && displayEmoji) ? `<span class="text-2xl">${displayEmoji}</span>` : '<span></span>'}
-                  ${item.url ? '<span class="text-brand-yellow text-sm opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
+                  ${item.url ? '<span class="text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition">READ →</span>' : ''}
                 </div>
               ` : ''}
             </div>
@@ -271,8 +270,8 @@ const title = Astro.props?.title ?? 'Trending Weirdness';
       // Add random badges
       if (Math.random() > 0.8) {
         const badges = [
-          '<span class="absolute -top-2 -right-2 bg-brand-pink text-white text-xs px-2 py-1 rounded-full font-bold">NEW</span>',
-          '<span class="absolute -top-2 -right-2 bg-brand-yellow text-black text-xs px-2 py-1 rounded-full font-bold">HOT</span>',
+          '<span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">NEW</span>',
+          '<span class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs px-2 py-1 rounded-full font-bold">HOT</span>',
           '<span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">LIVE</span>',
           '<span class="absolute -top-2 -right-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-2 py-1 rounded-full font-bold">VIRAL</span>'
         ];

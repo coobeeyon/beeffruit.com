@@ -4,10 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [tailwind(), sitemap()],
   site: 'https://beeffruit.com',
-  integrations: [
-    tailwind({ applyBaseStyles: true }),
-    sitemap()
-  ]
+  output: 'hybrid' // Allow dynamic routes
 });
 
