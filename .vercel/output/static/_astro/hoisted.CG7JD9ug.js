@@ -1,0 +1,1 @@
+const s=Number({correct:s}),t=document.getElementById("bf-quiz-result"),o=Array.from(document.querySelectorAll("button[data-i]"));o.forEach(e=>e.addEventListener("click",()=>{Number(e.dataset.i)===s?(t.textContent="Correct. Obviously.",t.className="text-emerald-400"):(t.textContent="Chaos says try again.",t.className="text-rose-400")}));

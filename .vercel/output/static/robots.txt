@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://beeffruit.com/sitemap-index.xml
+
